@@ -29,6 +29,18 @@ on_ft = 'html'
 repo  = 'cespare/vim-toml'
 on_ft = 'toml'
 
+[[plugins]]
+repo = 'myhere/vim-nodejs-complete'
+on_ft = 'Node.js'
+
+[[plugins]]
+repo = 'moll/vim-node'
+on_ft = 'vim-node'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = 'js-indent-color'
+
 [[plugins]] # Markdown
 repo = 'rcmdnk/vim-markdown'
 on_ft = ['markdown','mkd']

@@ -39,8 +39,6 @@ if dein#load_state(s:dein_cache_dir)
     endif
 
     call dein#end()
-    set background=dark
-    colorscheme kalisi
     call dein#save_state()
 endif
 
@@ -52,3 +50,7 @@ endif
 filetype plugin indent on
 set number
 autocmd VimEnter * execute 'NERDTree'
+set background=dark
+colorscheme kalisi
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE

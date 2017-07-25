@@ -49,6 +49,7 @@ endif
 
 filetype plugin indent on
 set number
+syntax on
 autocmd VimEnter * execute 'NERDTree'
 set background=dark
 colorscheme kalisi

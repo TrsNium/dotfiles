@@ -55,3 +55,15 @@ set background=dark
 colorscheme kalisi
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
+
+set autoindent
+set noswapfile
+set ruler
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
+"}}}
+"
+set cursorline
+set termguicolors
+hi Cursor guifg=green guibg=green
+hi Cursor2 guifg=red guibg=red
+set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50

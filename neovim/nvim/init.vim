@@ -44,7 +44,26 @@ if dein#load_state(s:dein_cache_dir)
     let g:neosnippet#snippets_directory='~/.config/snippets'
     "imap <expr><C-m> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
     "smap <C-m> <Plug>(neocomplcache_snippets_expand)
-
+ 
+    let g:airline#extensions#tabline#enabled = 1
+    nmap <C-p> <Plug>AirlineSelectPrevTab
+    nmap <C-n> <Plug>AirlineSelectNextTab
+    let g:airline#extensions#tabline#buffer_idx_mode = 1
+    if !exists('g:airline_symbols')
+	    	let g:airline_symbols = {}
+    endif
+	 
+    let g:airline_right_sep = '⮂'
+    let g:airline_right_alt_sep = '⮃'
+    let g:airline_symbols.crypt = '🔒'		"暗号化されたファイル
+    let g:airline_symbols.linenr = '¶'			"行
+    let g:airline_symbols.maxlinenr = '㏑'		"最大行
+    let g:airline_symbols.branch = '⭠'		"gitブランチ
+    let g:airline_symbols.paste = 'ρ'			"ペーストモード
+    let g:airline_symbols.spell = 'Ꞩ'			"スペルチェック
+    let g:airline_symbols.notexists = '∄'		"gitで管理されていない場合
+    let g:airline_symbols.whitespace = 'Ξ'	"空白の警告(余分な空白など)
+    let g:airline_solarized_bg='dark'
     call dein#end()
     call dein#save_state()
 endif
@@ -52,7 +71,7 @@ endif
 if has('vim_starting') && dein#check_install()
     call dein#install()
 endif
-
+" }}}
 
 if dein#tap('deoplete.nvim')
     let g:deoplete#enable_at_startup = 1

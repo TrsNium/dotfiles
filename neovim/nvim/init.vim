@@ -29,14 +29,21 @@ let g:dein#enable_notification = 1
 
 if dein#load_state(s:dein_cache_dir)
     call dein#begin(s:dein_cache_dir)
-
+    call dein#add('Shougo/dein.vim')
+    call dein#add('Shougo/neocomplcache.vim')
+    call dein#add('Shougo/neocomplete.vim')
+    call dein#add('Shougo/neosnippet.vim')
+    call dein#add('Shougo/neosnippet-snippets')
     let s:toml_dir = g:config_home . '/dein'
 
     call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
-    call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
-    if has('nvim')
-        call dein#load_toml(s:toml_dir . '/neovim.toml', {'lazy': 1})
-    endif
+    call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})	
+    call dein#load_toml(s:toml_dir . '/neovim.toml', {'lazy': 1})
+
+    "let g:alduin_Shout_Fire_Breath = 1
+    let g:neosnippet#snippets_directory='~/.config/snippets'
+    "imap <expr><C-m> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+    "smap <C-m> <Plug>(neocomplcache_snippets_expand)
 
     call dein#end()
     call dein#save_state()
@@ -45,14 +52,18 @@ endif
 if has('vim_starting') && dein#check_install()
     call dein#install()
 endif
-" }}}
+
+
+if dein#tap('deoplete.nvim')
+    let g:deoplete#enable_at_startup = 1
+endif
 
 filetype plugin indent on
 set number
 syntax on
 autocmd VimEnter * execute 'NERDTree'
 set background=dark
-colorscheme kalisi
+colorscheme alduin
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 
@@ -63,3 +74,5 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
 "}}}
 "
 set cursorline
+
+let $RUST_SRC_PATH="/home/orumin/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"

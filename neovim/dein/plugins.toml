@@ -1,6 +1,26 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+[[plugins]]
+repo = 'sebastianmarkow/deoplete-rust'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+hook_source = '''
+    let g:rustfmt_autosave = 1
+'''
+
+[[plugins]]
+repo = 'racer-rust/vim-racer'
+on_ft = 'rust'
+hook_source = '''
+" racerバイナリ指定
+let g:racer_cmd = "~/.cargo/bin/racer"
+" rust本体のソースコードパス指定
+let $RUST_SRC_PATH="/home/trsnium/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+'''
+
 [[plugins]] # ステータスライン
 repo = 'itchyny/lightline.vim'
 hook_add = '''
@@ -90,3 +110,9 @@ repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
 repo = 'freeo/vim-kalisi'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'AlessandroYorba/Alduin'

@@ -94,4 +94,3 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
 "
 set cursorline
 
-let $RUST_SRC_PATH="/home/orumin/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"

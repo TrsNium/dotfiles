@@ -108,6 +108,10 @@ repo = 'freeo/vim-kalisi'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
+repo = 'Shougo/neocomplcache'
+
+
+[[plugins]]
 repo = 'AlessandroYorba/Alduin'
 
 [[plugins]]
@@ -115,3 +119,6 @@ repo = 'vim-airline/vim-airline'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'

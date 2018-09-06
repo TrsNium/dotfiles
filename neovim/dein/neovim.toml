@@ -11,13 +11,6 @@ hook_source = '''
         call dein#add('roxma/vim-hug-neovim-rpc')
     endif
     let g:deoplete#enable_at_startup = 1
-
-    call dein#add('Shougo/neosnippet.vim')
-    call dein#add('Shougo/neosnippet-snippets')
-    
-    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-	\    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
 on_i = 1
 
@@ -34,6 +27,17 @@ endif
 on_i  = 1
 on_ft = ['snippet']
 depends = ['neosnippet-snippets']
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+depends = ['neosnippet-snippets']
+on_i = 1
+hook_source = '''
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-n>" :
+  \ neosnippet#expandable_or_jumpable() ?
+   \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+'''
 
 
 [[plugins]]

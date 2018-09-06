@@ -122,3 +122,6 @@ repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'

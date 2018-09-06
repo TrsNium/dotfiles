@@ -39,7 +39,7 @@ imap <expr><TAB>
    \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 '''
 
-
+#////////////////////////////////////RUST/////////////////////////////////////////////
 [[plugins]]
 repo = 'sebastianmarkow/deoplete-rust'
 on_ft = 'rust'
@@ -51,6 +51,22 @@ hook_source = '''
 	let g:deoplete#sources#rust#disable_keymap=1
 	nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
 	nmap <buffer> K  <plug>DeopleteRustShowDocumentation
+'''
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+hook_source = '''
+    let g:rustfmt_autosave = 1
+'''
+
+[[plugins]]
+repo = 'racer-rust/vim-racer'
+on_ft = 'rust'
+hook_source = '''
+set hidden
+let g:racer_cmd = "/home/trsnium/.cargo/bin/racer"
+let $RUST_SRC_PATH="/home/trsnium/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"  
 '''
 
 [[plugins]] # unite.vim 後継

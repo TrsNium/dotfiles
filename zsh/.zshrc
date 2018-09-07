@@ -93,3 +93,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#RUST language
+export PATH=${HOME}/.cargo/bin:${PATH}
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+export RACER_BIN_PATH=${HOME}/.cargo/bin/racer
+

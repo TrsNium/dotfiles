@@ -1,17 +1,18 @@
 #install build-essential and zsh
-sudo apt-get install build-essential zsh git
+apt-get install build-essential zsh git
 
 #install Rust language
 curl https://sh.rustup.rs -sSf | sh
+export PATH=${HOME}/.cargo/bin:${PATH}
 rustup toolchain add nightly
 cargo +nightly install racer
 rustup component add rust-src
 
 #install neovim
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt-get update
-sudo apt-get install neovim
+apt-get install software-properties-common
+add-apt-repository ppa:neovim-ppa/unstable
+apt-get update
+apt-get install neovim
 
 #move .zshrc to $HOME
 mv zsh/.zshrc $HOME/.zshrc

@@ -61,8 +61,8 @@ repo = 'sebastianmarkow/deoplete-rust'
 on_ft = 'rust'
 depends = ['deoplete.nvim']
 hook_source = '''
-        let g:deoplete#sources#rust#racer_binary='/home/trsnium/.cargo/bin/racer'
-	let g:deoplete#sources#rust#rust_source_path='/home/trsnium/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+        let g:deoplete#sources#rust#racer_binary=$RACER_BIN_PATH
+	let g:deoplete#sources#rust#rust_source_path=$RUST_SRC_PATH
 	let g:deoplete#sources#rust#show_duplicates=1
 	let g:deoplete#sources#rust#disable_keymap=1
 	nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
@@ -81,13 +81,10 @@ repo = 'racer-rust/vim-racer'
 on_ft = 'rust'
 hook_source = '''
 set hidden
-let g:racer_cmd = "/home/trsnium/.cargo/bin/racer"
-let $RUST_SRC_PATH="/home/trsnium/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"  
+let g:racer_cmd=$RACER_BIN_PATH
 '''
 
-
-#/////////////////////////////////////python//////////////////////////////////////
-[[plugins]] # unite.vim 後継
+#//others
 repo = 'Shougo/denite.nvim'
 if = 'has("python3")'
 on_cmd = 'Denite'

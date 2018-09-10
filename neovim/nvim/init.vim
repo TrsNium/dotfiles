@@ -92,5 +92,3 @@ set ruler
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
 "}}}
 "
-set cursorline
-

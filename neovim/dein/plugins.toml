@@ -5,24 +5,6 @@ repo = 'Shougo/dein.vim'
 repo = 'sebastianmarkow/deoplete-rust'
 
 [[plugins]]
-repo = 'rust-lang/rust.vim'
-on_ft = 'rust'
-hook_source = '''
-    let g:rustfmt_autosave = 1
-'''
-
-[[plugins]]
-repo = 'racer-rust/vim-racer'
-on_ft = 'rust'
-hook_source = '''
-" racerバイナリ指定
-let g:racer_cmd = "~/.cargo/bin/racer"
-" rust本体のソースコードパス指定
-let $RUST_SRC_PATH="/home/trsnium/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
-'''
-
-
-[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 # Lang
@@ -75,6 +57,24 @@ hook_add = '''
 
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+depends = 'deoplete.nvim'
+on_ft = 'python'
+
+#[[plugins]]
+#repo = 'lambdalisue/vim-pyenv'
+#depends = 'davidhalter/jedi-vim'
+#on_ft = 'python'
+
+[[plugins]]
+repo = 'jmcantrell/vim-virtualenv'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'andviro/flake8-vim'
 on_ft = 'python'
 
 # Colors

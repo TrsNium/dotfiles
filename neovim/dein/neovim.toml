@@ -69,6 +69,21 @@ let g:racer_cmd = $RACER_BIN_PATH
 let $RUST_SRC_PATH=$RUST_SRC_PATH  
 '''
 
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+on_ft = ['python']
+rev = 'next'
+build = 'bash install.sh'
+hook_source = '''
+set hidden
+let g:LanguageClient_serverCommands = {
+	\ 'python': ['pyls']
+	\}
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+'''
+
 [[plugins]] # unite.vim 後継
 repo = 'Shougo/denite.nvim'
 if = 'has("python3")'

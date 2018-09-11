@@ -24,7 +24,7 @@ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
 
 #python install
-/bin/zsh "pyenv install anaconda3-4.1.0 && pyenv global anaconda3-4.1.0 && pyenv  rehash && pip install neovim"
+/bin/zsh -c "pyenv install anaconda3-4.1.0 && pyenv global anaconda3-4.1.0 && pyenv  rehash && pip install neovim"
 
 #move neovim config
 mkdir $HOME/.config

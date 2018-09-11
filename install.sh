@@ -24,11 +24,12 @@ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
 
 #python install
-/bin/zsh -c "pyenv install anaconda3-4.1.0 && pyenv global anaconda3-4.1.0 && pyenv  rehash && pip install neovim"
+/bin/zsh "pyenv install anaconda3-4.1.0 && pyenv global anaconda3-4.1.0 && pyenv  rehash && pip install neovim && pip install python-language-server"
 
 #move neovim config
 mkdir $HOME/.config
 cp -r ./neovim/* $HOME/.config
+chmod 777 $HOME/.cache/dein/repos/github.com/autozimu/LanguageClient-neovim/bin/languageclient
 
 #change login shell
 chsh -s /bin/zsh

@@ -39,6 +39,22 @@ imap <expr><TAB>
    \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 '''
 
+#///////////////////////////////////LSP For Multi Programming Languages////////////////////////
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+depends = 'deoplete.nvim'
+on_ft = ['python']
+build = './install.sh'
+hook_source = '''
+set hidden
+let g:LanguageClient_serverCommands = {
+	\ 'python': ['pyls']
+}
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+'''
+
 #////////////////////////////////////RUST/////////////////////////////////////////////
 [[plugins]]
 repo = 'sebastianmarkow/deoplete-rust'
@@ -65,10 +81,10 @@ repo = 'racer-rust/vim-racer'
 on_ft = 'rust'
 hook_source = '''
 set hidden
-let g:racer_cmd = $RACER_BIN_PATH
-let $RUST_SRC_PATH=$RUST_SRC_PATH  
+let g:racer_cmd=$RACER_BIN_PATH
 '''
 
+<<<<<<< HEAD
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 on_ft = ['python']
@@ -85,6 +101,9 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 '''
 
 [[plugins]] # unite.vim 後継
+=======
+#//others
+>>>>>>> 46f03003746be8bf6e1b942bf0cbeeb819a2bfec
 repo = 'Shougo/denite.nvim'
 if = 'has("python3")'
 on_cmd = 'Denite'

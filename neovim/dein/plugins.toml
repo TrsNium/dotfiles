@@ -77,23 +77,6 @@ hook_add = '''
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'
 
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = 'python'
-
-#[[plugins]]
-#repo = 'lambdalisue/vim-pyenv'
-#depends = 'davidhalter/jedi-vim'
-#on_ft = 'python'
-
-[[plugins]]
-repo = 'jmcantrell/vim-virtualenv'
-on_ft = 'python'
-
-[[plugins]]
-repo = 'andviro/flake8-vim'
-on_ft = 'python'
-
 # Colors
 [[plugins]] # hybrid
 repo = 'w0ng/vim-hybrid'

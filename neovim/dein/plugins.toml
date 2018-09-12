@@ -7,6 +7,9 @@ repo = 'sebastianmarkow/deoplete-rust'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
+[[pluins]]
+repo = 'Shougo/neosnippet-snippets'
+
 # Lang
 [[plugins]]
 repo = 'cespare/vim-toml'

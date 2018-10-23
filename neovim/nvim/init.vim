@@ -86,6 +86,10 @@ colorscheme alduin
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
 set autoindent
 set noswapfile
 set ruler

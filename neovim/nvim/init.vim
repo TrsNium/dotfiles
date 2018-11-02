@@ -90,6 +90,8 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
+set mouse=a
+
 set autoindent
 set noswapfile
 set ruler

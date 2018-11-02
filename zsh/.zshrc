@@ -94,6 +94,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+[[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
+
 #RUST language
 export PATH="$HOME/.cargo/bin:$PATH" 
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"

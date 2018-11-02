@@ -12,6 +12,7 @@ rustup component add rust-src
 apt-get install tmux
 git clone --recursive https://github.com/tony/tmux-config.git ~/.tmux
 ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
+cat -e "set -g mouse on\nset -g terminal-overrides 'xterm*:smcup@:rmcup@'">>~/.tmux/.tmux.conf
 
 #install neovim
 apt-get install software-properties-common

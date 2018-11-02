@@ -94,6 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#tmux config
 [[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
 
 #RUST language

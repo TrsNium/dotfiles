@@ -35,7 +35,7 @@ if dein#load_state(s:dein_cache_dir)
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
     let s:toml_dir = g:config_home . '/dein'
-
+  
     call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
     call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})	
     call dein#load_toml(s:toml_dir . '/neovim.toml', {'lazy': 1})
@@ -77,12 +77,13 @@ if dein#tap('deoplete.nvim')
     let g:deoplete#enable_at_startup = 1
 endif
 
+
 filetype plugin indent on
 set number
 syntax on
 autocmd VimEnter * execute 'NERDTree'
 set background=dark
-colorscheme alduin
+colorscheme sierra
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 

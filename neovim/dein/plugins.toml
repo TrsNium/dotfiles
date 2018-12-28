@@ -98,7 +98,7 @@ repo = 'Shougo/neocomplcache'
 
 
 [[plugins]]
-repo = 'AlessandroYorba/Alduin'
+repo = 'AlessandroYorba/Sierra'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -111,3 +111,7 @@ repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
+
+#resize window
+[[plugins]]
+repo = 'simeji/winresizer'

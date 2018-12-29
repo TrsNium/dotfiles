@@ -1,6 +1,12 @@
 #install build-essential and zsh
 apt-get install build-essential zsh git
 
+#install oh my zsh
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+#install powerlevel9k
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
 #install Rust language
 curl https://sh.rustup.rs -sSf | sh
 export PATH=${HOME}/.cargo/bin:${PATH}

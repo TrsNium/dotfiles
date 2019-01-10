@@ -65,7 +65,7 @@ if dein#load_state(s:dein_cache_dir)
     let g:airline_symbols.whitespace = 'Ξ'	"空白の警告(余分な空白など)
     let g:airline_solarized_bg='dark'
     call dein#end()
-    call dein#save_state()
+    "call dein#save_state()
 endif
 
 if has('vim_starting') && dein#check_install()

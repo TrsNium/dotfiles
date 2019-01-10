@@ -38,6 +38,14 @@ on_ft = 'Node.js'
 repo = 'moll/vim-node'
 on_ft = 'vim-node'
 
+#置換プレビュー
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+
+#末尾ホワイトスペースの可視化
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 on_ft = 'js-indent-color'

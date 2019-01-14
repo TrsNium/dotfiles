@@ -78,6 +78,9 @@ if dein#tap('deoplete.nvim')
 endif
 
 
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+
 filetype plugin indent on
 set number
 syntax on

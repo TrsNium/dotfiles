@@ -35,16 +35,16 @@ if dein#load_state(s:dein_cache_dir)
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
     let s:toml_dir = g:config_home . '/dein'
-  
+
     call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
-    call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})	
+    call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
     call dein#load_toml(s:toml_dir . '/neovim.toml', {'lazy': 1})
 
     "let g:alduin_Shout_Fire_Breath = 1
     let g:neosnippet#snippets_directory='~/.config/snippets'
     "imap <expr><C-m> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
     "smap <C-m> <Plug>(neocomplcache_snippets_expand)
- 
+
     let g:airline#extensions#tabline#enabled = 1
     nmap <C-p> <Plug>AirlineSelectPrevTab
     nmap <C-n> <Plug>AirlineSelectNextTab
@@ -52,7 +52,7 @@ if dein#load_state(s:dein_cache_dir)
     if !exists('g:airline_symbols')
 	    	let g:airline_symbols = {}
     endif
-	 
+
     let g:airline_right_sep = '⮂'
     let g:airline_right_alt_sep = '⮃'
     let g:airline_symbols.crypt = '🔒'		"暗号化されたファイル
@@ -90,9 +90,22 @@ colorscheme sierra
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 
+set wrapscan
+set ignorecase
+set smartcase
+
 set expandtab
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
 set tabstop=2
 set shiftwidth=2
+set expandtab ts=2 sw=2 ai
+
+highlight SpecialKey ctermfg=1
+set list
+set listchars=tab:T>
 
 set mouse=a
 

@@ -73,7 +73,7 @@ let $RUST_SRC_PATH=$RUST_SRC_PATH
 repo = 'autozimu/LanguageClient-neovim'
 on_ft = ['python']
 rev = 'next'
-build = 'bash install.sh'
+build = 'source install.sh'
 hook_source = '''
 set hidden
 let g:LanguageClient_serverCommands = {

@@ -109,6 +109,9 @@ set listchars=tab:T>
 
 set mouse=a
 
+set cursorline
+hi clear CursorLine
+
 set autoindent
 set noswapfile
 set ruler

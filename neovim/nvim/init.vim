@@ -110,7 +110,8 @@ set listchars=tab:T>
 set mouse=a
 
 set cursorline
-hi clear CursorLine
+highlight CursorLine ctermbg=Black
+hi CursorLineNr term=bold cterm=NONE ctermbg=NONE
 
 set autoindent
 set noswapfile

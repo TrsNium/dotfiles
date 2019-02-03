@@ -116,6 +116,9 @@ repo = 'vim-airline/vim-airline'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
+hook_add='''
+let g:airline_theme='minimalist'
+'''
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'

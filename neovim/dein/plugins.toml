@@ -78,11 +78,6 @@ repo = 'davidhalter/jedi-vim'
 depends = 'deoplete.nvim'
 on_ft = 'python'
 
-#[[plugins]]
-#repo = 'lambdalisue/vim-pyenv'
-#depends = 'davidhalter/jedi-vim'
-#on_ft = 'python'
-
 [[plugins]]
 repo = 'jmcantrell/vim-virtualenv'
 on_ft = 'python'
@@ -107,10 +102,6 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'Shougo/neocomplcache'
 
-
-[[plugins]]
-repo = 'AlessandroYorba/Sierra'
-
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add='''
@@ -132,3 +123,7 @@ repo = 'cohama/lexima.vim'
 #resize window
 [[plugins]]
 repo = 'simeji/winresizer'
+
+#colorscheme
+[[plugins]]
+repo = 'AlessandroYorba/Alduin'

@@ -86,7 +86,7 @@ set number
 syntax on
 autocmd VimEnter * execute 'NERDTree'
 set background=dark
-colorscheme sierra
+colorscheme alduin
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 

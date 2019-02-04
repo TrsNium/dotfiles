@@ -1,10 +1,7 @@
 let g:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
 
-" dein {{{
 let s:dein_cache_dir = g:cache_home . '/dein'
-
-" reset augroup
 augroup MyAutoCmd
     autocmd!
 augroup END
@@ -12,12 +9,10 @@ augroup END
 if &runtimepath !~# '/dein.vim'
     let s:dein_repo_dir = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
 
-    " Auto Download
     if !isdirectory(s:dein_repo_dir)
         call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
     endif
 
-    " dein.vim をプラグインとして読み込む
     execute 'set runtimepath^=' . s:dein_repo_dir
 endif
 
@@ -39,19 +34,6 @@ if dein#load_state(s:dein_cache_dir)
     call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
     call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
     call dein#load_toml(s:toml_dir . '/neovim.toml', {'lazy': 1})
-
-    "let g:alduin_Shout_Fire_Breath = 1
-    let g:neosnippet#snippets_directory='~/.config/snippets'
-    "imap <expr><C-m> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-    "smap <C-m> <Plug>(neocomplcache_snippets_expand)
-
-    let g:airline#extensions#tabline#enabled = 1
-    nmap <C-p> <Plug>AirlineSelectPrevTab
-    nmap <C-n> <Plug>AirlineSelectNextTab
-    let g:airline#extensions#tabline#buffer_idx_mode = 1
-    if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-    endif
 
     call dein#end()
 endif

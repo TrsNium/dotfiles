@@ -12,6 +12,9 @@ repo = 'scrooloose/nerdtree'
 
 [[pluins]]
 repo = 'Shougo/neosnippet-snippets'
+hook_add='''
+let g:neosnippet#snippets_directory='~/.config/snippets'
+'''
 
 # Lang
 [[plugins]]
@@ -106,6 +109,13 @@ repo = 'Shougo/neocomplcache'
 repo = 'vim-airline/vim-airline'
 hook_add='''
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+nmap <C-p> <Plug>AirlineSelectPrevTab
+nmap <C-n> <Plug>AirlineSelectNextTab
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 '''
 
 [[plugins]]

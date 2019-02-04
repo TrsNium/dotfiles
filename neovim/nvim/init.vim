@@ -89,7 +89,8 @@ autocmd VimEnter * execute 'NERDTree'
 autocmd QuickFixCmdPost *grep* cwindow
 
 set background=dark
-colorscheme alduin
+colorscheme nord
+
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 

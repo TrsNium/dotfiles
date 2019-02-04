@@ -126,4 +126,4 @@ repo = 'simeji/winresizer'
 
 #colorscheme
 [[plugins]]
-repo = 'AlessandroYorba/Alduin'
+repo = 'arcticicestudio/nord-vim'

@@ -54,15 +54,10 @@ filetype plugin indent on
 syntax on
 syntax enable
 
-set t_Co=256
-
 autocmd VimEnter * execute 'NERDTree'
 autocmd QuickFixCmdPost *grep* cwindow
-
 autocmd BufNewFile,BufRead *.dig set filetype=yaml
 autocmd Syntax yaml setl indentkeys-=<:>
-
-colorscheme nord
 
 set wrapscan
 set ignorecase
@@ -88,8 +83,6 @@ set cursorline
 set ruler
 set number
 
-highlight CursorLine ctermbg=Black
-hi CursorLineNr term=bold cterm=NONE ctermbg=NONE
-
 set noswapfile
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
+set termguicolors
+colorscheme iceberg

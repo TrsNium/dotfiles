@@ -84,7 +84,10 @@ nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 filetype plugin indent on
 set number
 syntax on
+
 autocmd VimEnter * execute 'NERDTree'
+autocmd QuickFixCmdPost *grep* cwindow
+
 set background=dark
 colorscheme alduin
 hi! Normal ctermbg=NONE guibg=NONE

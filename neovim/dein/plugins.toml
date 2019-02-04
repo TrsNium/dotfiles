@@ -116,6 +116,12 @@ let g:airline_theme='minimalist'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+hook_add='''
+let g:indentLine_enabled = 0
+let g:indentLine_char = '|'
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
+'''
 
 [[plugins]]
 repo = 'cohama/lexima.vim'

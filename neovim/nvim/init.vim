@@ -65,30 +65,31 @@ if dein#load_state(s:dein_cache_dir)
     let g:airline_symbols.whitespace = 'Ξ'	"空白の警告(余分な空白など)
     let g:airline_solarized_bg='dark'
     call dein#end()
-    "call dein#save_state()
 endif
 
 if has('vim_starting') && dein#check_install()
     call dein#install()
 endif
-" }}}
 
 if dein#tap('deoplete.nvim')
     let g:deoplete#enable_at_startup = 1
 endif
 
-
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 filetype plugin indent on
-set number
+
 syntax on
+syntax enable
+
+set t_Co=256
 
 autocmd VimEnter * execute 'NERDTree'
 autocmd QuickFixCmdPost *grep* cwindow
+autocmd BufNewFile,BufRead *.dig set filetype=yaml
+autocmd Syntax yaml setl indentkeys-=<:>
 
-set background=dark
 colorscheme nord
 
 hi! Normal ctermbg=NONE guibg=NONE
@@ -98,6 +99,7 @@ set wrapscan
 set ignorecase
 set smartcase
 
+set autoindent
 set expandtab
 set noexpandtab
 set copyindent
@@ -114,12 +116,11 @@ set listchars=tab:T>
 set mouse=a
 
 set cursorline
+set ruler
+set number
+
 highlight CursorLine ctermbg=Black
 hi CursorLineNr term=bold cterm=NONE ctermbg=NONE
 
-set autoindent
 set noswapfile
-set ruler
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
-"}}}
-"

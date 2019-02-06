@@ -46,8 +46,7 @@ if dein#tap('deoplete.nvim')
     let g:deoplete#enable_at_startup = 1
 endif
 
-nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+tnoremap <Esc> <C-\><C-n>
 
 filetype plugin indent on
 

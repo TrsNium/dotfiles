@@ -132,4 +132,4 @@ repo = 'simeji/winresizer'
 
 #colorscheme
 [[plugins]]
-repo = 'arcticicestudio/nord-vim'
+repo = 'cocopon/iceberg.vim'

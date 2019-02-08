@@ -71,13 +71,14 @@ let $RUST_SRC_PATH=$RUST_SRC_PATH
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
-on_ft = ['python']
+on_ft = ['python', 'ruby']
 rev = 'next'
 build = 'source install.sh'
 hook_source = '''
 set hidden
 let g:LanguageClient_serverCommands = {
-	\ 'python': ['pyls']
+	\ 'python': ['pyls'],
+	\ 'ruby': ['solargraph', 'stdio']
 	\}
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>

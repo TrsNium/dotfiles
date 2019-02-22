@@ -47,6 +47,7 @@ if dein#tap('deoplete.nvim')
 endif
 
 tnoremap <Esc> <C-\><C-n>
+nnoremap <ESC><ESC> :noh<CR>
 
 filetype plugin indent on
 

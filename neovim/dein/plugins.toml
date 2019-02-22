@@ -110,16 +110,16 @@ endif
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
-hook_add='''
-let g:airline_theme='minimalist'
-'''
+#hook_add='''
+#let g:airline_theme='minimalist'
+#'''
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 hook_add='''
 let g:indentLine_enabled = 0
 let g:indentLine_char = '|'
-let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceEnabled = 2
 let g:indentLine_leadingSpaceChar = '·'
 '''
 
@@ -129,6 +129,10 @@ repo = 'cohama/lexima.vim'
 #resize window
 [[plugins]]
 repo = 'simeji/winresizer'
+
+#To use Ag
+[[plugins]]
+repo = 'rking/ag.vim'
 
 #colorscheme
 [[plugins]]

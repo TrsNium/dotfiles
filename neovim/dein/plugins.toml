@@ -10,6 +10,9 @@ repo = 'sebastianmarkow/deoplete-rust'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
 [[pluins]]
 repo = 'Shougo/neosnippet-snippets'
 hook_add='''
@@ -122,6 +125,14 @@ let g:indentLine_leadingSpaceChar = '·'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
+
+#visualize git diff
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+#visualize replace
+[[plugins]]
+repo = 'osyo-manga/vim-over'
 
 #resize window
 [[plugins]]

@@ -39,7 +39,6 @@ imap <expr><TAB>
    \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 '''
 
-#////////////////////////////////////RUST/////////////////////////////////////////////
 [[plugins]]
 repo = 'sebastianmarkow/deoplete-rust'
 on_ft = 'rust'
@@ -74,14 +73,9 @@ repo = 'autozimu/LanguageClient-neovim'
 on_ft = ['python', 'ruby', 'java', 'cpp', 'c', 'go']
 rev = 'next'
 build = 'source install.sh'
-hook_source = '''
-"set signcolumn=yes
-"let g:LanguageClient_loggingLevel = 'INFO'
-"let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
-"let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
-
+hook_add = '''
 set hidden
-let l:jdt_lsp_data_dir = getcwd()
+set signcolumn=yes
 let g:LanguageClient_serverCommands = {
 	\ 'python': ['pyls'],
 	\ 'ruby': ['solargraph', 'stdio'],

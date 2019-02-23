@@ -55,6 +55,8 @@ syntax on
 syntax enable
 
 autocmd VimEnter * execute 'NERDTree'
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif<Paste>
+
 autocmd QuickFixCmdPost *grep* cwindow
 autocmd BufNewFile,BufRead *.dig set filetype=yaml
 autocmd Syntax yaml setl indentkeys-=<:>

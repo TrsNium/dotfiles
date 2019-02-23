@@ -46,6 +46,25 @@ if dein#tap('deoplete.nvim')
     let g:deoplete#enable_at_startup = 1
 endif
 
+" The prefix key.
+nnoremap    [Tag]   <Nop>
+nmap    t [Tag]
+" Tab jump
+for n in range(1, 9)
+  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
+" tc 新しいタブを一番右に作る
+map <silent> [Tag]x :tabclose<CR>
+" tx タブを閉じる
+map <silent> [Tag]n :tabnext<CR>
+" tn 次のタブ
+map <silent> [Tag]p :tabprevious<CR>
+" tp 前のタブ
+
+
 tnoremap <Esc> <C-\><C-n>
 nnoremap <ESC><ESC> :noh<CR>
 
@@ -54,8 +73,9 @@ filetype plugin indent on
 syntax on
 syntax enable
 
+set encoding=UTF-8
 autocmd VimEnter * execute 'NERDTree'
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif<Paste>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 autocmd QuickFixCmdPost *grep* cwindow
 autocmd BufNewFile,BufRead *.dig set filetype=yaml
@@ -79,6 +99,10 @@ highlight SpecialKey ctermfg=1
 set list
 set listchars=tab:T>
 
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
 set mouse=a
 
 set cursorline
@@ -87,4 +111,4 @@ set number
 
 set noswapfile
 set termguicolors
-colorscheme iceberg
+colorscheme nova

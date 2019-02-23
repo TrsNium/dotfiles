@@ -94,3 +94,6 @@ repo = 'rking/ag.vim' # to use Ag in vim
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim' #colorscheme
+
+[[plugins]]
+repo = 'trevordmiller/nova-vim'

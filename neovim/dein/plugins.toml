@@ -9,6 +9,12 @@ repo = 'sebastianmarkow/deoplete-rust'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add='''
+let NERDTreeShowHidden = 1
+'''
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'

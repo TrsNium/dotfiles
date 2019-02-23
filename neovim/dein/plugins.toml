@@ -1,35 +1,19 @@
 [[plugins]]
-repo = 'Shougo/dein.vim'
+repo = 'Shougo/dein.vim' # package manager
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-
-[[plugins]]
-repo = 'sebastianmarkow/deoplete-rust'
-
-[[plugins]]
-repo = 'scrooloose/nerdtree'
+repo = 'scrooloose/nerdtree' # display directory and file construct
 hook_add='''
 let NERDTreeShowHidden = 1
 '''
 
 [[plugins]]
-repo = 'jistr/vim-nerdtree-tabs'
+repo = 'jistr/vim-nerdtree-tabs' # nerd-tree-sync-tab
 
 [[plugins]]
-repo = 'ryanoasis/vim-devicons'
+repo = 'ryanoasis/vim-devicons' # display file icon
 
-[[pluins]]
-repo = 'Shougo/neosnippet-snippets'
-hook_add='''
-let g:neosnippet#snippets_directory='~/.config/snippets'
-'''
-
-# Lang
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
+##LANGS
 [[plugins]] # Haml
 repo  = 'tpope/vim-haml'
 on_ft = 'haml'
@@ -42,70 +26,34 @@ on_ft = 'html'
 repo  = 'cespare/vim-toml'
 on_ft = 'toml'
 
-[[plugins]]
-repo = 'myhere/vim-nodejs-complete'
-on_ft = 'Node.js'
-
-[[plugins]]
-repo = 'moll/vim-node'
-on_ft = 'vim-node'
-
-#置換プレビュー
-[[plugins]]
-repo = 'osyo-manga/vim-over'
-
-#末尾ホワイトスペースの可視化
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = 'js-indent-color'
-
 [[plugins]] # Markdown
 repo = 'rcmdnk/vim-markdown'
 on_ft = ['markdown','mkd']
-hook_add = '''
-    let g:vim_markdown_frontmatter = 1
-    let g:vim_markdown_math = 1
-'''
 
 [[plugins]] # Golang
 repo = 'fatih/vim-go'
 on_ft = 'go'
 
-[[plugins]] # Japanese doc
-repo = 'vim-jp/vimdoc-ja'
-on_ft = 'help'
-hook_add = '''
-    set helplang=ja,en
-'''
-
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'
 
-#[[plugins]]
-#repo = 'davidhalter/jedi-vim'
-#depends = 'deoplete.nvim'
-#on_ft = 'python'
-
 [[plugins]]
-repo = 'jmcantrell/vim-virtualenv'
+repo = 'davidhalter/jedi-vim' #python complitation for external library
+depends = 'deoplete.nvim'
 on_ft = 'python'
-
-# Colors
-[[plugins]] # hybrid
-repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
+repo = 'bronson/vim-trailing-whitespace' #visualize not nesessary whitespace after character
+
+[[plugins]]
 repo = 'Shougo/neocomplcache'
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
+repo = 'vim-airline/vim-airline' #Custom Airline
 hook_add='''
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
@@ -118,10 +66,10 @@ endif
 '''
 
 [[plugins]]
-repo = 'vim-airline/vim-airline-themes'
+repo = 'vim-airline/vim-airline-themes' #to set ailrline theme
 
 [[plugins]]
-repo = 'Yggdroot/indentLine'
+repo = 'Yggdroot/indentLine' #visualize indent
 hook_add='''
 let g:indentLine_enabled = 0
 let g:indentLine_char = '|'
@@ -130,24 +78,19 @@ let g:indentLine_leadingSpaceChar = '·'
 '''
 
 [[plugins]]
-repo = 'cohama/lexima.vim'
+repo = 'cohama/lexima.vim' #support edit bucket
 
-#visualize git diff
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
+repo = 'airblade/vim-gitgutter' # visualize git diff
 
-#visualize replace
 [[plugins]]
-repo = 'osyo-manga/vim-over'
+repo = 'osyo-manga/vim-over' # support replace
 
-#resize window
 [[plugins]]
-repo = 'simeji/winresizer'
+repo = 'simeji/winresizer' # support window resize
 
-#To use Ag
 [[plugins]]
-repo = 'rking/ag.vim'
+repo = 'rking/ag.vim' # to use Ag in vim
 
-#colorscheme
 [[plugins]]
-repo = 'cocopon/iceberg.vim'
+repo = 'cocopon/iceberg.vim' #colorscheme

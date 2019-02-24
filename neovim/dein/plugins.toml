@@ -94,7 +94,7 @@ repo = 'jistr/vim-nerdtree-tabs' # nerd-tree-sync-tab
 repo = 'kien/ctrlp.vim' # search file , buffer
 hook_add='''
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_match_window = 'bottom,order:btt,min:12,max:12'
+let g:ctrlp_match_window = 'bottom,order:btt,min:12,max:12,results:100'
 '''
 
 [[plugins]]

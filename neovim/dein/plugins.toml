@@ -55,6 +55,8 @@ endif
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes' #to set ailrline theme
+hook_add='''
+'''
 
 [[plugins]]
 repo = 'Yggdroot/indentLine' #visualize indent
@@ -83,7 +85,6 @@ repo = 'rking/ag.vim' # to use Ag in vim
 [[plugins]]
 repo = 'scrooloose/nerdtree' # display directory and file construct
 hook_add='''
-let NERDTreeShowHidden = 1
 let g:NERDTreeShowBookmarks=1
 '''
 
@@ -93,6 +94,19 @@ repo = 'jistr/vim-nerdtree-tabs' # nerd-tree-sync-tab
 [[plugins]]
 repo = 'kien/ctrlp.vim' # search file , buffer
 hook_add='''
+nnoremap s <Nop>
+nnoremap sa :<C-u>CtrlP<CR>
+nnoremap sb :<C-u>CtrlPBuffer<CR>
+nnoremap sd :<C-u>CtrlPDir<CR>
+nnoremap sf :<C-u>CtrlP<CR>
+nnoremap sl :<C-u>CtrlPLine<CR>
+nnoremap sm :<C-u>CtrlPMRUFiles<CR>
+nnoremap sq :<C-u>CtrlPQuickfix<CR>
+nnoremap ss :<C-u>CtrlPMixed<CR>
+nnoremap st :<C-u>CtrlPTag<CR>
+
+let g:ctrlp_map = '<Nop>'
+
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_match_window = 'bottom,order:btt,min:12,max:12,results:100'
 '''

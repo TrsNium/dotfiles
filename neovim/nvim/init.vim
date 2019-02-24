@@ -73,13 +73,19 @@ syntax on
 syntax enable
 
 set encoding=UTF-8
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
 autocmd VimEnter * execute 'NERDTree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 autocmd QuickFixCmdPost *grep* cwindow
 autocmd BufNewFile,BufRead *.dig set filetype=yaml
 autocmd Syntax yaml setl indentkeys-=<:>
+
+augroup QfAutoCommands
+  autocmd!
+  " Auto-close quickfix window
+  autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif
+augroup END
 
 set wrapscan
 set ignorecase
@@ -114,4 +120,4 @@ set termguicolors
 colorscheme nova
 
 highlight CursorLine ctermfg=black
-highlight NERDTreeFile ctermfg=251
+highlight NERDTreeFile ctermfg=black

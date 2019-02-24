@@ -64,7 +64,6 @@ map <silent> [Tag]n :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
 " tp 前のタブ
 
-
 tnoremap <Esc> <C-\><C-n>
 nnoremap <ESC><ESC> :noh<CR>
 
@@ -112,3 +111,6 @@ set number
 set noswapfile
 set termguicolors
 colorscheme nova
+
+highlight CursorLine ctermfg=black
+highlight NERDTreeFile ctermfg=251

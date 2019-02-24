@@ -43,6 +43,7 @@ repo = 'Shougo/neocomplcache'
 [[plugins]]
 repo = 'vim-airline/vim-airline' #Custom Airline
 hook_add='''
+let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline_powerline_fonts=0
 let g:airline#extensions#tabline#enabled = 1
 nmap <C-p> <Plug>AirlineSelectPrevTab
@@ -56,6 +57,7 @@ endif
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes' #to set ailrline theme
 hook_add='''
+let g:airline_theme='minimalist'
 '''
 
 [[plugins]]

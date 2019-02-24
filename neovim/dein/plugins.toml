@@ -1,18 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim' # package manager
 
-[[plugins]]
-repo = 'scrooloose/nerdtree' # display directory and file construct
-hook_add='''
-let NERDTreeShowHidden = 1
-'''
-
-[[plugins]]
-repo = 'jistr/vim-nerdtree-tabs' # nerd-tree-sync-tab
-
-[[plugins]]
-repo = 'ryanoasis/vim-devicons' # display file icon
-
 ##LANGS
 [[plugins]] # Haml
 repo  = 'tpope/vim-haml'
@@ -91,6 +79,18 @@ repo = 'simeji/winresizer' # support window resize
 
 [[plugins]]
 repo = 'rking/ag.vim' # to use Ag in vim
+
+[[plugins]]
+repo = 'scrooloose/nerdtree' # display directory and file construct
+hook_add='''
+let NERDTreeShowHidden = 1
+'''
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs' # nerd-tree-sync-tab
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons' # display file icon
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim' #colorscheme

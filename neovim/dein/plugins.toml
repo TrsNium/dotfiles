@@ -84,13 +84,14 @@ repo = 'rking/ag.vim' # to use Ag in vim
 repo = 'scrooloose/nerdtree' # display directory and file construct
 hook_add='''
 let NERDTreeShowHidden = 1
+let g:NERDTreeShowBookmarks=1
 '''
 
 [[plugins]]
 repo = 'jistr/vim-nerdtree-tabs' # nerd-tree-sync-tab
 
 [[plugins]]
-repo = 'kien/ctrlp.vim' # search file , buffer 
+repo = 'kien/ctrlp.vim' # search file , buffer
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons' # display file icon

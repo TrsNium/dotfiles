@@ -73,6 +73,7 @@ syntax on
 syntax enable
 
 set encoding=UTF-8
+nnoremap <C-n> :NERDTreeToggle<CR>
 autocmd VimEnter * execute 'NERDTree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 

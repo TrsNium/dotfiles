@@ -90,6 +90,9 @@ let NERDTreeShowHidden = 1
 repo = 'jistr/vim-nerdtree-tabs' # nerd-tree-sync-tab
 
 [[plugins]]
+repo = 'kien/ctrlp.vim' # search file , buffer 
+
+[[plugins]]
 repo = 'ryanoasis/vim-devicons' # display file icon
 
 [[plugins]]

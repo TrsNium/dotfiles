@@ -92,7 +92,7 @@ let g:NERDTreeShowBookmarks=1
 repo = 'jistr/vim-nerdtree-tabs' # nerd-tree-sync-tab
 
 [[plugins]]
-repo = 'kien/ctrlp.vim' # search file , buffer
+repo = 'ctrlpvim/ctrlp.vim' # search file , buffer
 hook_add='''
 nnoremap s <Nop>
 nnoremap sa :<C-u>CtrlP<CR>

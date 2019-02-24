@@ -43,7 +43,7 @@ repo = 'Shougo/neocomplcache'
 [[plugins]]
 repo = 'vim-airline/vim-airline' #Custom Airline
 hook_add='''
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 let g:airline#extensions#tabline#enabled = 1
 nmap <C-p> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
@@ -110,6 +110,9 @@ let g:ctrlp_map = '<Nop>'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_match_window = 'bottom,order:btt,min:12,max:12,results:100'
 '''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive' # git 
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons' # display file icon

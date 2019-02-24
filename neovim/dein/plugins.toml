@@ -92,6 +92,10 @@ repo = 'jistr/vim-nerdtree-tabs' # nerd-tree-sync-tab
 
 [[plugins]]
 repo = 'kien/ctrlp.vim' # search file , buffer
+hook_add='''
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_match_window = 'bottom,order:btt,min:12,max:12'
+'''
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons' # display file icon

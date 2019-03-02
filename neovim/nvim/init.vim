@@ -73,7 +73,7 @@ syntax on
 syntax enable
 
 set encoding=UTF-8
-nnoremap <Space>t :NERDTreeToggle<CR>
+nmap <Space>t :NERDTreeToggle<CR>
 autocmd VimEnter * execute 'NERDTree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -117,7 +117,9 @@ set number
 
 set noswapfile
 set termguicolors
-colorscheme nova
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+colorscheme iceberg
 
 highlight CursorLine ctermfg=black
 highlight NERDTreeFile ctermfg=black

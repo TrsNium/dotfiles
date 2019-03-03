@@ -110,6 +110,7 @@ set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 set mouse=a
+set clipboard=unnamed
 
 set cursorline
 set ruler

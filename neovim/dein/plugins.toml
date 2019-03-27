@@ -121,6 +121,13 @@ repo = 'tpope/vim-fugitive' # git
 repo = 'ryanoasis/vim-devicons' # display file icon
 
 [[plugins]]
+repo = 'Asheq/close-buffers.vim'
+hook_add='''
+nnoremap <silent> <Space>q :CloseBuffersMenu<CR>
+nnoremap <silent> <Space>Q :CloseBuffersMenu<CR>
+'''
+
+[[plugins]]
 repo = 'cocopon/iceberg.vim' #colorscheme
 
 [[plugins]]

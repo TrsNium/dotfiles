@@ -57,13 +57,17 @@ filetype plugin indent on
 
 syntax on
 syntax enable
-
 set encoding=UTF-8
+
+" NerdTree Option
+" Support Toggle menue
 nmap <Space>t :NERDTreeToggle<CR>
 autocmd VimEnter * execute 'NERDTree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 autocmd QuickFixCmdPost *grep* cwindow
+
+" Digfile read as yaml and set yaml index keys
 autocmd BufNewFile,BufRead *.dig set filetype=yaml
 autocmd Syntax yaml setl indentkeys-=<:>
 
@@ -86,6 +90,10 @@ set softtabstop=0
 set tabstop=2
 set shiftwidth=2
 set expandtab ts=2 sw=2 ai
+
+" improve replace
+set inccommand=split
+set hlsearch
 
 highlight SpecialKey ctermfg=1
 set list

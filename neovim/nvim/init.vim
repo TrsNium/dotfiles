@@ -59,6 +59,8 @@ syntax on
 syntax enable
 set encoding=UTF-8
 
+nmap / /\v
+
 " NerdTree Option
 " Support Toggle menue
 nmap <Space>t :NERDTreeToggle<CR>

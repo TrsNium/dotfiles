@@ -98,3 +98,17 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.cargo/bin:$PATH" 
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export RACER_BIN_PATH="$HOME/.cargo/bin/racer"
+
+
+# Install fzf if not installed
+ls $HOME/.fzf | grep . || echo "Install fzf" \
+  && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
+  && $HOME/.fzf/install --all
+
+# Cntrl+h show history using fzf
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  CURSOR=$#BUFFER
+}
+zle -N select-history
+bindkey '^h' select-history

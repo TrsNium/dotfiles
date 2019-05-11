@@ -1,47 +1,59 @@
-#install build-essential and zsh
-apt-get install build-essential zsh git
 
-#install oh my zsh
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+if [ "$(uname)" == 'Darwin' ]; then
+  OS='Mac'
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  OS='Linux'
+fi
 
-#install powerlevel9k
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+install_pyenv()
+{
+  echo "Install Python"
+  git clone https://github.com/pyenv/pyenv.git ~/.pyenv \
+    && export PYENV_ROOT="$HOME/.pyenv" \
+    && export PATH="$PYENV_ROOT/bin:$PATH" \
+    && if command -v pyenv 1>/dev/null 2>&1; then fieval "$(pyenv init -)" fi \
+    && pyenv install 3.5.6 \
+    && pip install neovim
+}
 
-#install Rust language
-curl https://sh.rustup.rs -sSf | sh
-export PATH=${HOME}/.cargo/bin:${PATH}
-rustup toolchain add nightly
-cargo +nightly install racer
-rustup component add rust-src
+if [ $OS = "Darwin" ];then
+  echo "Install development environment for OSX"
+  echo "Install homebrew"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew install zsh
+  chsh /usr/local/bin/zsh
+  cp ./zsh/.zshrc $HOME
 
-#install tmux
-apt-get install tmux
-git clone --recursive https://github.com/tony/tmux-config.git ~/.tmux
-ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
-cat -e "set -g mouse on\nset -g terminal-overrides 'xterm*:smcup@:rmcup@'">>~/.tmux/.tmux.conf
+  #Install git
+  brew install git
 
-#install neovim
-apt-get install software-properties-common
-add-apt-repository ppa:neovim-ppa/unstable
-apt-get update
-apt-get install neovim
+  #Install pyenv and neovim plugin
+  install_pyenv
 
-#move .zshrc to $HOME
-mv zsh/.zshrc $HOME/.zshrc
+  echo "Install Neovim"
+  brew install --HEAD neovim
 
-#python install
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
+  echo "Install Alacritty"
+  brew cask install alacritty
+elif [ $OS = "Linux" ];then
+  echo "Install development environment for linux"
+  apt-get update -y
+  apt-get install -y zsh git
+  chsh /usr/local/bin/zsh
+  cp ./zsh/.zshrc $HOME
 
-#python install
-/bin/zsh "pyenv install anaconda3-4.1.0 && pyenv global anaconda3-4.1.0 && pyenv  rehash && pip install neovim && pip install python-language-server"
+  #Install pyenv and neovim plugin
+  install_pyenv
 
-#move neovim config
-mkdir $HOME/.config
-cp -r ./neovim/* $HOME/.config
-chmod 777 $HOME/.cache/dein/repos/github.com/autozimu/LanguageClient-neovim/bin/languageclient
+  apt-get install -y software-properties-common \
+    && add-apt-repository -y ppa:neovim-ppa/stable \
+    && apt-get update -y \
+    && apt-get install -y neovim
 
-#change login shell
-chsh -s /bin/zsh
+  echo "Install Alacritty"
+  apt install -y alacritty
+fi
+
+echo "Install fzf"
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
+  && ~/.fzf/install

@@ -94,6 +94,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export LANG=ja_JP.UTF-8
+export TERM=xterm-256color
+export XDG_CONFIG_HOME=~/dotfiles/.config
+
+# Pyenv config
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  fieval "$(pyenv init -)"
+fi
+
 #RUST language
 export PATH="$HOME/.cargo/bin:$PATH" 
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"

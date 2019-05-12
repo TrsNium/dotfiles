@@ -64,7 +64,7 @@ nmap / /\v
 " NerdTree Option
 " Support Toggle menue
 nmap <Space>t :NERDTreeToggle<CR>
-autocmd VimEnter * execute 'NERDTree'
+" autocmd VimEnter * execute 'NERDTree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 autocmd QuickFixCmdPost *grep* cwindow

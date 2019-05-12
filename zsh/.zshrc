@@ -94,6 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+bindkey -v
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
 export XDG_CONFIG_HOME=~/dotfiles/.config

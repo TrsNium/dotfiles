@@ -53,6 +53,12 @@ nnoremap <ESC><ESC> :noh<CR>
 "close current buffer
 nnoremap <Space>q :bd<CR>
 
+nnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-w>j :TmuxNavigateDown<cr>
+nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
+nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
+nnoremap <silent> <C-w>\\ :TmuxNavigatePrevious<cr>
+
 filetype plugin indent on
 
 syntax on
@@ -113,6 +119,12 @@ set clipboard=unnamed
 set cursorline
 set ruler
 set number
+
+let tmux_navigator_no_mappings = 1
+nnoremap <silent> <c-a><c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-a><c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-a><c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-a><c-l> :TmuxNavigateRight<cr>
 
 set noswapfile
 set termguicolors

@@ -121,10 +121,10 @@ set ruler
 set number
 
 let tmux_navigator_no_mappings = 1
-nnoremap <silent> <c-a><c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-a><c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-a><c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-a><c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-w>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-w>j :TmuxNavigateDown<cr>
+nnoremap <silent> <c-w>k :TmuxNavigateUp<cr>
+nnoremap <silent> <c-w>l :TmuxNavigateRight<cr>
 
 set noswapfile
 set termguicolors

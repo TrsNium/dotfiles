@@ -28,6 +28,14 @@ on_ft = ['markdown','mkd']
 repo = 'fatih/vim-go'
 on_ft = 'go'
 
+[[plugins]] # erlang highlight
+repo = 'vim-erlang/vim-erlang-runtime'
+on_ft = 'erlang'
+
+[[plugins]] # erlang syntax
+repo = 'vim-erlang/vim-erlang-omnicomplete'
+on_ft = 'erlang'
+
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'

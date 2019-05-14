@@ -73,6 +73,8 @@ autocmd QuickFixCmdPost *grep* cwindow
 autocmd BufNewFile,BufRead *.dig set filetype=yaml
 autocmd Syntax yaml setl indentkeys-=<:>
 
+au BufNewFile,BufRead *.erl setf erlang
+
 augroup QfAutoCommands
   autocmd!
   " Auto-close quickfix window

@@ -134,3 +134,6 @@ repo = 'cocopon/iceberg.vim' #colorscheme
 
 [[plugins]]
 repo = 'trevordmiller/nova-vim'
+
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'

@@ -143,3 +143,9 @@ function select-history() {
 }
 zle -N select-history
 bindkey '^h' select-history
+
+function fg_nvim(){
+  fg %nvim
+}
+zle -N fg_nvim
+bindkey ^f fg_nvim

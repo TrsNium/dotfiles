@@ -2,8 +2,7 @@ let g:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
 
 let s:dein_cache_dir = g:cache_home . '/dein'
-augroup MyAutoCmd
-    autocmd!
+augroup MyAutoCmd autocmd!
 augroup END
 
 if &runtimepath !~# '/dein.vim'
@@ -81,6 +80,7 @@ autocmd Syntax yaml setl indentkeys-=<:>
 
 au BufNewFile,BufRead *.erl setf erlang
 
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 augroup QfAutoCommands
   autocmd!
   " Auto-close quickfix window

@@ -75,7 +75,7 @@ let $RUST_SRC_PATH=$RUST_SRC_PATH
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
-on_ft = ['python', 'ruby', 'java', 'cpp', 'c', 'go']
+on_ft = ['python', 'ruby', 'java', 'cpp', 'c', 'go', 'erlang']
 rev = 'next'
 build = 'source install.sh'
 hook_add = '''
@@ -85,7 +85,8 @@ let g:LanguageClient_serverCommands = {
 	\ 'python': ['pyls'],
 	\ 'ruby': ['solargraph', 'stdio'],
 	\ 'cpp': ['clangd'],
-	\ 'go': ['go-langserver', '-mode', 'stdio'],
+	\ 'go': ['go-langserver', '-mode', 'stdio', '-gocodecompletion'],
+	\ 'erlang': ['$HOME/erlang_ls/_build/prod/rel/erlang_ls/erlang_ls-0.0.1/bin/erlang_ls foreground'],
 	\ 'c': ['clangd'],
 	\ 'java': [
 	    \'java',
@@ -110,6 +111,9 @@ let g:LanguageClient_hasSnippetSupport = 0
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+let g:LanguageClient_loggingLevel = 'INFO'
+let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
+let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
 '''
 
 [[plugins]] # unite.vim 後継

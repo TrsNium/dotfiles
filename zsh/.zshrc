@@ -149,3 +149,4 @@ function fg_nvim(){
 }
 zle -N fg_nvim
 bindkey ^f fg_nvim
+bindkey "^?" backward-delete-char

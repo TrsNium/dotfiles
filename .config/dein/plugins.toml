@@ -36,6 +36,12 @@ on_ft = 'erlang'
 repo = 'vim-erlang/vim-erlang-omnicomplete'
 on_ft = 'erlang'
 
+[[plugins]] # terraform syntax highlight
+repo = 'hashivim/vim-terraform'
+hook_add = '''
+let g:terraform_fmt_on_save = 1
+'''
+
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'

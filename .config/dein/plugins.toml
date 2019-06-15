@@ -132,8 +132,8 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:12,max:12,results:100'
 [[plugins]]
 repo = 'tpope/vim-fugitive' # git
 
-[[plugins]]
-repo = 'ryanoasis/vim-devicons' # display file icon
+#[[plugins]]
+#repo = 'ryanoasis/vim-devicons' # display file icon
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim' #colorscheme

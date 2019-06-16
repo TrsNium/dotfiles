@@ -96,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey -v
 export LANG=ja_JP.UTF-8
-export TERM=xterm-256color
+export TERM=screen-256color
 export XDG_CONFIG_HOME=~/dotfiles/.config
 
 # Tmux config

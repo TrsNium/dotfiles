@@ -52,8 +52,6 @@ window:
   #     - buttonless: Title bar, transparent background, but no title bar buttons
   decorations: full
 
-  # When true, alacritty starts maximized.
-  start_maximized: false
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -87,43 +85,7 @@ tabspaces: 8
 
 # Font configuration (changes require restart)
 font:
-  # Normal (roman) font face
-  #normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux) monospace
-    #   - (Windows) Consolas
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Regular
-
-  # Bold font face
-  #bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Bold
-
-  # Italic font face
-  #italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Italic
-
-  # Point size
-  size: 11.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -153,12 +115,6 @@ font:
   # This is a global setting and will require a log out or restart to take
   # effect.
   use_thin_strokes: true
-
-# Display the time it takes to redraw each frame.
-render_timer: false
-
-# Keep the log file after quitting Alacritty.
-persistent_logging: false
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
@@ -246,7 +202,7 @@ visual_bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.9
+background_opacity: 0.8
 
 # Mouse bindings
 #
@@ -351,6 +307,30 @@ enable_experimental_conpty_backend: false
 
 # Send ESC (\x1b) before characters when alt is pressed.
 alt_send_esc: true
+
+debug:
+  # Display the time it takes to redraw each frame.
+  render_timer: false
+
+  # Keep the log file after quitting Alacritty.
+  persistent_logging: false
+
+  # Log level
+  #
+  # Values for `log_level`:
+  #   - None
+  #   - Error
+  #   - Warn
+  #   - Info
+  #   - Debug
+  #   - Trace
+  log_level: Warn
+
+  # Print all received window events.
+  print_events: false
+
+  # Record all characters and escape sequences as test data.
+  ref_test: false
 
 # Key bindings
 #

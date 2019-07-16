@@ -143,3 +143,6 @@ repo = 'trevordmiller/nova-vim'
 
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
+
+[[plugins]]
+repo = 'chrisbra/NrrwRgn'

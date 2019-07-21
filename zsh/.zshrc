@@ -150,3 +150,6 @@ function fg_nvim(){
 zle -N fg_nvim
 bindkey ^f fg_nvim
 bindkey "^?" backward-delete-char
+
+#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+#echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc

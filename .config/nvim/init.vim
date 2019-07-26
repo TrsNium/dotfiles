@@ -52,12 +52,6 @@ nnoremap <ESC><ESC> :noh<CR>
 "close current buffer
 nnoremap <Space>q :bd<CR>
 
-nnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-w>j :TmuxNavigateDown<cr>
-nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
-nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
-nnoremap <silent> <C-w>\\ :TmuxNavigatePrevious<cr>
-
 filetype plugin indent on
 
 syntax on

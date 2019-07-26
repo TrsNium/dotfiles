@@ -120,7 +120,7 @@ set cursorline
 set ruler
 set number
 
-let tmux_navigator_no_mappings = 1
+"let tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-w>h :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-w>j :TmuxNavigateDown<cr>
 nnoremap <silent> <c-w>k :TmuxNavigateUp<cr>

@@ -9,7 +9,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "map h goBack\nmap l goForward\nmap <c-d> removeTab\nmap <c-p> previousTab\nmap <c-n> nextTab\nmap <c-f> scrollPageDown\nmap <c-b> scrollPageUp",
+  "keyMappings": "map h goBack\nmap l goForward\nmap <c-d> removeTab\nmap <c-p> previousTab\nmap <c-n> nextTab\nmap <c-f> scrollPageDown\nmap <c-b> scrollPageUp\nmap <c-a> LinkHints.activateModeToOpenInNewTab",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "https://www.google.com/",

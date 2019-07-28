@@ -75,7 +75,7 @@ let $RUST_SRC_PATH=$RUST_SRC_PATH
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
-on_ft = ['python', 'ruby', 'java', 'cpp', 'c', 'go', 'erlang']
+on_ft = ['elixir', 'python', 'ruby', 'java', 'cpp', 'c', 'go', 'erlang']
 rev = 'next'
 build = 'source install.sh'
 hook_add = '''
@@ -106,6 +106,7 @@ let g:LanguageClient_serverCommands = {
 	    \'-data',
 	    \'$HOME/.config/jdt-data'
 	  \],
+	\ 'elixir': ['$HOME/.config/elixir-ls/language_server.sh']
 	\}
 let g:LanguageClient_hasSnippetSupport = 0
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>

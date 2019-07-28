@@ -73,6 +73,7 @@ autocmd BufNewFile,BufRead *.dig set filetype=yaml
 autocmd Syntax yaml setl indentkeys-=<:>
 
 au BufNewFile,BufRead *.erl setf erlang
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 augroup QfAutoCommands

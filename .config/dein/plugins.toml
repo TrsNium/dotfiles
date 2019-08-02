@@ -42,6 +42,10 @@ hook_add = '''
 let g:terraform_fmt_on_save = 1
 '''
 
+[[plugins]] # elixir syntax highlight
+repo = 'elixir-editors/vim-elixir'
+on_ft = 'elixir'
+
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'

@@ -1,6 +1,5 @@
 {
-  "elixirLS.dialyzerEnabled": false,
   "elixirLS": {
-    "dialyzerEnabled": false
+    "dialyzerEnabled": true
   }
 }

@@ -45,8 +45,8 @@ if dein#tap('deoplete.nvim')
     let g:deoplete#enable_at_startup = 1
 endif
 
-"terminal mode exit with esc
-tnoremap <Esc> <C-\><C-n>
+"migrate insert to normal with esc esc
+tnoremap <Esc><ESC> <C-\><C-n>
 "disable highlight
 nnoremap <ESC><ESC> :noh<CR>
 "close current buffer

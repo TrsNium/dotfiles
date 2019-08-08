@@ -109,9 +109,11 @@ let g:LanguageClient_serverCommands = {
 	\ 'elixir': ['$HOME/.config/elixir-ls/language_server.sh']
 	\}
 let g:LanguageClient_hasSnippetSupport = 0
+let g:neosnippet#enable_complete_done = 0
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 let g:LanguageClient_loggingLevel = 'DEBUG'
 let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
 let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')

@@ -85,7 +85,7 @@ let g:LanguageClient_serverCommands = {
 	\ 'python': ['pyls'],
 	\ 'ruby': ['solargraph', 'stdio'],
 	\ 'cpp': ['clangd'],
-	\ 'go': ['go-langserver', '-mode', 'stdio', '-gocodecompletion'],
+	\ 'go': ['bingo', '-mode', 'stdio'],
 	\ 'erlang': ['$HOME/erlang_ls/_build/prod/rel/erlang_ls/erlang_ls-0.0.1/bin/erlang_ls foreground'],
 	\ 'c': ['clangd'],
 	\ 'java': [

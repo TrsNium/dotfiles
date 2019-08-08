@@ -102,7 +102,7 @@ set hlsearch
 
 highlight SpecialKey ctermfg=1
 set list
-set listchars=tab:T>
+"autocmd BufRead,BufNewFile *.ruby set listchars=tab:T>
 
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab

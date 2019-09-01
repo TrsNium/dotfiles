@@ -22,15 +22,14 @@ on_i = 1
 [[plugins]]
 repo = 'Shougo/neosnippet'
 hook_source = '''
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-if has('conceal')
-    set conceallevel=2 concealcursor=niv
-endif
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+  if has('conceal')
+      set conceallevel=2 concealcursor=niv
+  endif
 '''
 on_i  = 1
-on_ft = ['snippet']
 depends = ['neosnippet-snippets']
 
 [[plugins]]
@@ -39,9 +38,9 @@ depends = ['neosnippet-snippets']
 on_i = 1
 hook_source = '''
 imap <expr><TAB>
- \ pumvisible() ? "\<C-n>" :
+  \ pumvisible() ? "\<C-n>" :
   \ neosnippet#expandable_or_jumpable() ?
-   \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 '''
 
 [[plugins]]
@@ -49,28 +48,28 @@ repo = 'sebastianmarkow/deoplete-rust'
 on_ft = 'rust'
 depends = ['deoplete.nvim']
 hook_source = '''
-        let g:deoplete#sources#rust#racer_binary=$RACER_BIN_PATH
-	let g:deoplete#sources#rust#rust_source_path=$RUST_SRC_PATH
-	let g:deoplete#sources#rust#show_duplicates=1
-	let g:deoplete#sources#rust#disable_keymap=1
-	nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
-	nmap <buffer> K  <plug>DeopleteRustShowDocumentation
+  let g:deoplete#sources#rust#racer_binary=$RACER_BIN_PATH
+  let g:deoplete#sources#rust#rust_source_path=$RUST_SRC_PATH
+  let g:deoplete#sources#rust#show_duplicates=1
+  let g:deoplete#sources#rust#disable_keymap=1
+  nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
+  nmap <buffer> K  <plug>DeopleteRustShowDocumentation
 '''
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = 'rust'
 hook_source = '''
-    let g:rustfmt_autosave = 1
+  let g:rustfmt_autosave = 1
 '''
 
 [[plugins]]
 repo = 'racer-rust/vim-racer'
 on_ft = 'rust'
 hook_source = '''
-set hidden
-let g:racer_cmd = $RACER_BIN_PATH
-let $RUST_SRC_PATH=$RUST_SRC_PATH
+  set hidden
+  let g:racer_cmd = $RACER_BIN_PATH
+  let $RUST_SRC_PATH=$RUST_SRC_PATH
 '''
 
 [[plugins]]
@@ -79,46 +78,46 @@ on_ft = ['elixir', 'python', 'ruby', 'java', 'cpp', 'c', 'go', 'erlang']
 rev = 'next'
 build = 'source install.sh'
 hook_add = '''
-set hidden
-set signcolumn=yes
-let g:LanguageClient_serverCommands = {
-	\ 'python': ['pyls'],
-	\ 'ruby': ['solargraph', 'stdio'],
-	\ 'cpp': ['clangd'],
-	\ 'go': ['bingo', '-mode', 'stdio'],
-	\ 'erlang': ['$HOME/erlang_ls/_build/prod/rel/erlang_ls/erlang_ls-0.0.1/bin/erlang_ls foreground'],
-	\ 'c': ['clangd'],
-	\ 'java': [
-	    \'java',
-	    \'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
-	    \'-Declipse.application=org.eclipse.jdt.ls.core.id1',
-	    \'-Dosgi.bundles.defaultStartLevel=4',
-	    \'-Declipse.product=org.eclipse.jdt.ls.core.product',
-	    \'-Dlog.protocol=true',
-	    \'-Dlog.level=ALL',
-	    \'-noverify',
-	    \'-Xms512M',
-	    \'-Xmx1024M',
-	    \'-jar',
-	    \'$HOME/.config/jdt-language-server-0.9.0-201711302113/plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar',
-	    \'-configuration',
-	    \'$HOME/.config/jdt-language-server-0.9.0-201711302113/config_mac',
-	    \'-data',
-	    \'$HOME/.config/jdt-data'
-	  \],
-	\ 'elixir': ['$HOME/.config/elixir-ls/language_server.sh']
-	\}
-let g:LanguageClient_hasSnippetSupport = 0
-let g:neosnippet#enable_complete_done = 0
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-let g:LanguageClient_loggingLevel = 'DEBUG'
-let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
-let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
-let g:LanguageClient_settingsPath = expand('$XDG_CONFIG_HOME/lsp/settings.json')
-let g:LanguageClient_loadSettings = 1
+  set hidden
+  set signcolumn=yes
+  let g:LanguageClient_serverCommands = {
+	  \ 'python': ['pyls'],
+	  \ 'ruby': ['solargraph', 'stdio'],
+	  \ 'cpp': ['clangd'],
+	  \ 'go': ['bingo', '-mode', 'stdio'],
+	  \ 'erlang': ['$HOME/erlang_ls/_build/prod/rel/erlang_ls/erlang_ls-0.0.1/bin/erlang_ls foreground'],
+	  \ 'c': ['clangd'],
+	  \ 'java': [
+	      \'java',
+	      \'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
+	      \'-Declipse.application=org.eclipse.jdt.ls.core.id1',
+	      \'-Dosgi.bundles.defaultStartLevel=4',
+	      \'-Declipse.product=org.eclipse.jdt.ls.core.product',
+	      \'-Dlog.protocol=true',
+	      \'-Dlog.level=ALL',
+	      \'-noverify',
+	      \'-Xms512M',
+	      \'-Xmx1024M',
+	      \'-jar',
+	      \'$HOME/.config/jdt-language-server-0.9.0-201711302113/plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar',
+	      \'-configuration',
+	      \'$HOME/.config/jdt-language-server-0.9.0-201711302113/config_mac',
+	      \'-data',
+	      \'$HOME/.config/jdt-data'
+	    \],
+	  \ 'elixir': ['$HOME/.config/elixir-ls/language_server.sh']
+	  \}
+  let g:LanguageClient_hasSnippetSupport = 0
+  let g:neosnippet#enable_complete_done = 0
+  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+  let g:LanguageClient_loggingLevel = 'DEBUG'
+  let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
+  let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
+  let g:LanguageClient_settingsPath = expand('$XDG_CONFIG_HOME/lsp/settings.json')
+  let g:LanguageClient_loadSettings = 1
 '''
 
 [[plugins]] # unite.vim 後継
@@ -126,20 +125,20 @@ repo = 'Shougo/denite.nvim'
 if = 'has("python3")'
 on_cmd = 'Denite'
 hook_post_source = '''
-    " file_rec
-    if executable('pt')
-        call denite#custom#var('file_rec', 'command', ['pt', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', ''])
-    endif
+" file_rec
+  if executable('pt')
+      call denite#custom#var('file_rec', 'command', ['pt', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', ''])
+  endif
 
-    " grep
-    if executable('pt')
-        call denite#custom#var('grep', 'command', ['pt', '--nogroup', '--nocolor', '--smart-case', '--hidden'])
-        call denite#custom#var('grep', 'default_opts', [])
-        call denite#custom#var('grep', 'recursive_opts', [])
-    endif
+  " grep
+  if executable('pt')
+      call denite#custom#var('grep', 'command', ['pt', '--nogroup', '--nocolor', '--smart-case', '--hidden'])
+      call denite#custom#var('grep', 'default_opts', [])
+      call denite#custom#var('grep', 'recursive_opts', [])
+  endif
 
-    call denite#custom#source('file_mru', 'matchers', ['matcher_fuzzy', 'matcher_project_files'])
-    call denite#custom#source('file_mru', 'converters', ['converter_relative_word'])
+  call denite#custom#source('file_mru', 'matchers', ['matcher_fuzzy', 'matcher_project_files'])
+  call denite#custom#source('file_mru', 'converters', ['converter_relative_word'])
 '''
 
 [[plugins]]

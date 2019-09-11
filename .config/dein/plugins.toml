@@ -128,7 +128,7 @@ nnoremap ss :<C-u>CtrlPMixed<CR>
 nnoremap st :<C-u>CtrlPTag<CR>
 
 let g:ctrlp_map = '<Nop>'
-
+let g:ctrlp_use_caching = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_match_window = 'bottom,order:btt,min:12,max:12,results:100'
 '''
@@ -150,3 +150,6 @@ repo = 'christoomey/vim-tmux-navigator'
 
 [[plugins]]
 repo = 'chrisbra/NrrwRgn'
+
+[[plugins]]
+repo = 'rhysd/git-messenger.vim'

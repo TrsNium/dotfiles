@@ -108,6 +108,7 @@ repo = 'scrooloose/nerdtree' # display directory and file construct
 hook_add='''
 let g:NERDTreeShowBookmarks=1
 let g:indentLine_fileTypeExclude = ["nerdtree"]
+let g:NERDTreeShowHidden=1
 '''
 
 [[plugins]]

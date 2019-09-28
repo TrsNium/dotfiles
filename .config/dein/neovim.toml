@@ -57,24 +57,8 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'rust-lang/rust.vim'
-on_ft = 'rust'
-hook_source = '''
-  let g:rustfmt_autosave = 1
-'''
-
-[[plugins]]
-repo = 'racer-rust/vim-racer'
-on_ft = 'rust'
-hook_source = '''
-  set hidden
-  let g:racer_cmd = $RACER_BIN_PATH
-  let $RUST_SRC_PATH=$RUST_SRC_PATH
-'''
-
-[[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
-on_ft = ['elixir', 'python', 'ruby', 'java', 'cpp', 'c', 'go', 'erlang']
+on_ft = ['elixir', 'python', 'ruby', 'rust', 'java', 'cpp', 'c', 'go', 'erlang']
 rev = 'next'
 build = 'source install.sh'
 hook_add = '''
@@ -85,6 +69,7 @@ hook_add = '''
 	  \ 'ruby': ['solargraph', 'stdio'],
 	  \ 'cpp': ['clangd'],
 	  \ 'go': ['bingo', '-mode', 'stdio'],
+	  \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 	  \ 'erlang': ['$HOME/erlang_ls/_build/prod/rel/erlang_ls/erlang_ls-0.0.1/bin/erlang_ls foreground'],
 	  \ 'c': ['clangd'],
 	  \ 'java': [

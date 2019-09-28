@@ -36,6 +36,13 @@ on_ft = 'erlang'
 repo = 'vim-erlang/vim-erlang-omnicomplete'
 on_ft = 'erlang'
 
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+hook_source = '''
+  let g:rustfmt_autosave = 1
+'''
+
 [[plugins]] # terraform syntax highlight
 repo = 'hashivim/vim-terraform'
 hook_add = '''

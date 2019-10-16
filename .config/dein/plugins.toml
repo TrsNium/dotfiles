@@ -126,8 +126,8 @@ repo = 'liuchengxu/vista.vim'
 hook_add='''
 let g:vista_icon_indent = ["▸ ", ""]
 let g:vista_echo_cursor_strategy="floating_win"
-nnoremap vl :Vista lcn<CR>
-nnoremap vf :Vista finder lcn<CR>
+nnoremap vvl :Vista lcn<CR>
+nnoremap vvf :Vista finder lcn<CR>
 let g:vista_fzf_preview = ['right:50%']
 '''
 

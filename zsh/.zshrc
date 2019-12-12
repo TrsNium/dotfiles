@@ -116,10 +116,31 @@ SAVEHIST=10000
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+typeset -U path cdpath fpath manpath
+
 bindkey -v
 export LANG=ja_JP.UTF-8
 export TERM=screen-256color
 export XDG_CONFIG_HOME=~/dotfiles/.config
+
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
+autoload -U compinit; compinit -C
+zstyle ':completion:*' format '%B%F{blue}%d%f%b'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' completer _complete _match _ignored _approximate _prefix
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
+zstyle ':completion:*' keep-prefix
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':completion::complete:*' use-cache true
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*' verbose no
+
+setopt AUTO_CD
+setopt complete_in_word
+setopt auto_list
+setopt auto_menu
 
 # Tmux config
 if [[ ! -n $TMUX && $- == *l* ]]; then
@@ -148,16 +169,4 @@ function select-history() {
 }
 zle -N select-history
 bindkey '^h' select-history
-
-fe() {
-  local files
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
-}
-
-function fg_nvim(){
-  fg %nvim
-}
-zle -N fg_nvim
-bindkey ^f fg_nvim
 bindkey "^?" backward-delete-char

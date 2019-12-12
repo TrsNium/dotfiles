@@ -58,7 +58,7 @@ hook_source = '''
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
-on_ft = ['elixir', 'python', 'ruby', 'rust', 'java', 'cpp', 'c', 'go', 'erlang']
+on_ft = ['elixir', 'python', 'ruby', 'rust', 'java', 'cpp', 'c', 'go', 'erlang', 'kotlin']
 rev = 'next'
 build = 'source install.sh'
 hook_add = '''
@@ -72,6 +72,7 @@ hook_add = '''
 	  \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 	  \ 'erlang': ['$HOME/erlang_ls/_build/prod/rel/erlang_ls/erlang_ls-0.0.1/bin/erlang_ls foreground'],
 	  \ 'c': ['clangd'],
+	  \ 'kotlin': ['$HOME/.config/server/bin/kotlin-language-server'],
 	  \ 'java': [
 	      \'java',
 	      \'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',

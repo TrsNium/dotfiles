@@ -1,18 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME"/.oh-my-zsh"
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="avit"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
+# cause zsh load theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -61,13 +56,33 @@ ZSH_THEME="avit"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew ruby osx )
+if [[ ! -d ~/.zplug ]]; then
+  git clone https://github.com/zplug/zplug ~/.zplug
+  source ~/.zplug/init.zsh && zplug update --self
+fi
 
-source $ZSH/oh-my-zsh.sh
+# Essential
+source ~/.zplug/init.zsh
 
-# User configuration
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "b4b4r07/emoji-cli"
+zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Install packages that have not been installed yet
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    else
+        echo
+    fi
+fi
+
+zplug load
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -118,31 +133,20 @@ if [[ ! -n $TMUX && $- == *l* ]]; then
   fi
 fi
 
-# Pyenv config
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  fieval "$(pyenv init -)"
-fi
-
-#RUST language
-export PATH="$HOME/.cargo/bin:$PATH" 
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-export RACER_BIN_PATH="$HOME/.cargo/bin/racer"
-
-
-# Install fzf if not installed
-ls $HOME/.fzf | grep . || echo "Install fzf" \
-  && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
-  && $HOME/.fzf/install --all
 
 # Cntrl+h show history using fzf
 function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  BUFFER=$(history -n -r 1 | fzf-tmux --no-sort +m --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
 }
 zle -N select-history
 bindkey '^h' select-history
+
+fe() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
+}
 
 function fg_nvim(){
   fg %nvim
@@ -150,6 +154,3 @@ function fg_nvim(){
 zle -N fg_nvim
 bindkey ^f fg_nvim
 bindkey "^?" backward-delete-char
-
-#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-#echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc

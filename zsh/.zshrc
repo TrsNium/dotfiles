@@ -70,6 +70,7 @@ zplug "zsh-users/zsh-completions"
 zplug "b4b4r07/emoji-cli"
 zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf
 zplug "mafredri/zsh-async", from:github
+zplug "b4b4r07/enhancd", use:init.sh
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 # Install packages that have not been installed yet
@@ -84,6 +85,12 @@ fi
 
 zplug load
 
+export ENHANCD_DISABLE_DOT=1
+export ENHANCD_FILTER=fzf-tmux
+export FZF_DEFAULT_OPTS="--extended --no-sort --exact --cycle --multi --ansi --reverse --border --sync --bind=ctrl-t:toggle"
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 

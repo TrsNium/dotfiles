@@ -58,7 +58,7 @@ hook_source = '''
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
-on_ft = ['elixir', 'python', 'ruby', 'rust', 'java', 'cpp', 'c', 'go', 'erlang', 'kotlin']
+on_ft = ['elixir', 'python', 'ruby', 'rust', 'java', 'cpp', 'c', 'go', 'erlang', 'kotlin', 'haskell']
 rev = 'next'
 build = 'source install.sh'
 hook_add = '''

@@ -132,3 +132,5 @@ set pumblend=30
 highlight CursorLine ctermfg=black
 highlight NERDTreeFile ctermfg=black
 highlight VertSplit ctermfg=bg ctermbg=bg guifg=bg guibg=bg
+
+set fileformats=unix,dos,mac

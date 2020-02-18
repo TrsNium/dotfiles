@@ -174,3 +174,6 @@ repo = 'chrisbra/NrrwRgn'
 
 [[plugins]]
 repo = 'rhysd/git-messenger.vim'
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'

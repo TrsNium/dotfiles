@@ -92,7 +92,7 @@ hook_add = '''
 	      \'$HOME/.config/jdt-data'
 	    \],
 	  \ 'elixir': ['$HOME/.config/elixir-ls/language_server.sh'],
-	  \ 'haskell': ['hie-wrapper']
+	  \ 'haskell': ['hie-wrapper', '--lsp']
 	  \}
   let g:LanguageClient_hasSnippetSupport = 0
   let g:neosnippet#enable_complete_done = 0

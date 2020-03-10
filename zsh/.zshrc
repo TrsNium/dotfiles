@@ -89,8 +89,8 @@ export ENHANCD_DISABLE_DOT=1
 export ENHANCD_FILTER=fzf-tmux
 export FZF_DEFAULT_OPTS="--extended --no-sort --exact --cycle --multi --ansi --reverse --border --sync --bind=ctrl-t:toggle"
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=500000
+SAVEHIST=500000
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 

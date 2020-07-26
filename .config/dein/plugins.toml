@@ -2,14 +2,6 @@
 repo = 'Shougo/dein.vim' # package manager
 
 ##LANGS
-[[plugins]] # Haml
-repo  = 'tpope/vim-haml'
-on_ft = 'haml'
-
-[[plugins]] # Html5
-repo  = 'othree/html5.vim'
-on_ft = 'html'
-
 [[plugins]] # Toml
 repo  = 'cespare/vim-toml'
 on_ft = 'toml'
@@ -20,38 +12,11 @@ hook_add='''
 let g:vim_json_syntax_conceal = 0
 '''
 
-[[plugins]] # Markdown
-repo = 'rcmdnk/vim-markdown'
-on_ft = ['markdown','mkd']
-
-[[plugins]] # Golang
-repo = 'fatih/vim-go'
-on_ft = 'go'
-
-[[plugins]] # erlang highlight
-repo = 'vim-erlang/vim-erlang-runtime'
-on_ft = 'erlang'
-
-[[plugins]] # erlang syntax
-repo = 'vim-erlang/vim-erlang-omnicomplete'
-on_ft = 'erlang'
-
-[[plugins]]
-repo = 'rust-lang/rust.vim'
-on_ft = 'rust'
-hook_source = '''
-  let g:rustfmt_autosave = 1
-'''
-
 [[plugins]] # terraform syntax highlight
 repo = 'hashivim/vim-terraform'
 hook_add = '''
 let g:terraform_fmt_on_save = 1
 '''
-
-[[plugins]] # elixir syntax highlight
-repo = 'elixir-editors/vim-elixir'
-on_ft = 'elixir'
 
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'

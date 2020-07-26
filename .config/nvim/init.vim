@@ -31,8 +31,8 @@ if dein#load_state(s:dein_cache_dir)
     let s:toml_dir = g:config_home . '/dein'
 
     call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
-    call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
-    call dein#load_toml(s:toml_dir . '/neovim.toml', {'lazy': 1})
+    call dein#load_toml(s:toml_dir . '/neovim.toml', {'lazy': 0})
+    call dein#load_toml(s:toml_dir . '/neovim_lazy.toml', {'lazy': 1})
 
     call dein#end()
 endif

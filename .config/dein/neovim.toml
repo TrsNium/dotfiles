@@ -1,23 +1,20 @@
-[[plugins]] # 補完
-repo = 'Shougo/deoplete.nvim'
-if = 'has("python3")'
-on_event = 'InsertEnter'
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 0
-  let g:deoplete#auto_complete_start_length = 1
-  let g:deoplete#enable_camel_case = 0
-  let g:deoplete#enable_ignore_case = 0
-  let g:deoplete#enable_refresh_always = 0
-  let g:deoplete#enable_smart_case = 1
-  let g:deoplete#file#enable_buffer_path = 1
-  let g:deoplete#max_list = 10000
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-      call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
+[[plugins]]
+repo = 'neovim/nvim-lsp'
+hook_add = '''
+lua require'nvim_lsp'.pyls.setup{}
+lua require'nvim_lsp'.gopls.setup{}
+lua require'nvim_lsp'.dockerls.setup{}
+lua require'nvim_lsp'.elixirls.setup{}
+lua require'nvim_lsp'.vimls.setup{}
+lua require'nvim_lsp'.yamlls.setup{}
 '''
-on_i = 1
+
+[[plugins]]
+repo = 'ncm2/float-preview.nvim'
+hook_source = '''
+set completeopt-=preview
+let g:float_preview#docked = 0
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -41,71 +38,6 @@ imap <expr><TAB>
   \ pumvisible() ? "\<C-n>" :
   \ neosnippet#expandable_or_jumpable() ?
   \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-'''
-
-[[plugins]]
-repo = 'sebastianmarkow/deoplete-rust'
-on_ft = 'rust'
-depends = ['deoplete.nvim']
-hook_source = '''
-  let g:deoplete#sources#rust#racer_binary=$RACER_BIN_PATH
-  let g:deoplete#sources#rust#rust_source_path=$RUST_SRC_PATH
-  let g:deoplete#sources#rust#show_duplicates=1
-  let g:deoplete#sources#rust#disable_keymap=1
-  nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
-  nmap <buffer> K  <plug>DeopleteRustShowDocumentation
-'''
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-on_ft = ['elixir', 'python', 'ruby', 'rust', 'java', 'cpp', 'c', 'go', 'erlang', 'kotlin', 'haskell']
-rev = 'next'
-build = 'source install.sh'
-hook_add = '''
-  set hidden
-  set signcolumn=yes
-  let g:LanguageClient_serverCommands = {
-	  \ 'python': ['pyls'],
-	  \ 'ruby': ['solargraph', 'stdio'],
-	  \ 'cpp': ['clangd'],
-	  \ 'go': ['bingo', '-mode', 'stdio'],
-	  \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-	  \ 'erlang': ['$HOME/erlang_ls/_build/prod/rel/erlang_ls/erlang_ls-0.0.1/bin/erlang_ls foreground'],
-	  \ 'c': ['clangd'],
-	  \ 'kotlin': ['$HOME/.config/server/bin/kotlin-language-server'],
-	  \ 'java': [
-	      \'java',
-	      \'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
-	      \'-Declipse.application=org.eclipse.jdt.ls.core.id1',
-	      \'-Dosgi.bundles.defaultStartLevel=4',
-	      \'-Declipse.product=org.eclipse.jdt.ls.core.product',
-	      \'-Dlog.protocol=true',
-	      \'-Dlog.level=ALL',
-	      \'-noverify',
-	      \'-Xms512M',
-	      \'-Xmx1024M',
-	      \'-jar',
-	      \'$HOME/.config/jdt-language-server-0.9.0-201711302113/plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar',
-	      \'-configuration',
-	      \'$HOME/.config/jdt-language-server-0.9.0-201711302113/config_mac',
-	      \'-data',
-	      \'$HOME/.config/jdt-data'
-	    \],
-	  \ 'elixir': ['$HOME/.config/elixir-ls/language_server.sh'],
-	  \ 'haskell': ['hie-wrapper', '--lsp']
-	  \}
-  let g:LanguageClient_hasSnippetSupport = 0
-  let g:neosnippet#enable_complete_done = 0
-  let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
-  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-  let g:LanguageClient_loggingLevel = 'DEBUG'
-  let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
-  let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
-  let g:LanguageClient_settingsPath = expand('$XDG_CONFIG_HOME/lsp/settings.json')
-  let g:LanguageClient_loadSettings = 1
 '''
 
 [[plugins]] # unite.vim 後継

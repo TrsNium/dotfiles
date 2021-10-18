@@ -1,12 +1,12 @@
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 hook_add = '''
-lua require'nvim_lsp'.pyls.setup{}
-lua require'nvim_lsp'.gopls.setup{}
-lua require'nvim_lsp'.dockerls.setup{}
-lua require'nvim_lsp'.elixirls.setup{}
-lua require'nvim_lsp'.vimls.setup{}
-lua require'nvim_lsp'.yamlls.setup{}
+lua require'lspconfig'.pylsp.setup{}
+lua require'lspconfig'.gopls.setup{}
+lua require'lspconfig'.dockerls.setup{}
+lua require'lspconfig'.elixirls.setup{}
+lua require'lspconfig'.vimls.setup{}
+lua require'lspconfig'.yamlls.setup{}
 '''
 
 [[plugins]]

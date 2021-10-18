@@ -1,5 +1,5 @@
 [[plugins]]
-repo = 'neovim/nvim-lsp'
+repo = 'neovim/nvim-lspconfig'
 hook_add = '''
 lua require'nvim_lsp'.pyls.setup{}
 lua require'nvim_lsp'.gopls.setup{}

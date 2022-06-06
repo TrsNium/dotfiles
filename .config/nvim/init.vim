@@ -41,10 +41,6 @@ if has('vim_starting') && dein#check_install()
     call dein#install()
 endif
 
-if dein#tap('deoplete.nvim')
-    let g:deoplete#enable_at_startup = 1
-endif
-
 "migrate insert to normal with esc esc
 tnoremap <Esc><ESC> <C-\><C-n>
 "disable highlight

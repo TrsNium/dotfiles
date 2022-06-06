@@ -1,43 +1,24 @@
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 hook_add = '''
-lua require'lspconfig'.pylsp.setup{}
-lua require'lspconfig'.gopls.setup{}
-lua require'lspconfig'.dockerls.setup{}
-lua require'lspconfig'.elixirls.setup{}
-lua require'lspconfig'.vimls.setup{}
-lua require'lspconfig'.yamlls.setup{}
+lua << EOF
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(function(server)
+  local opts = {}
+  server:setup(opts)
+end)
+EOF
 '''
+
+[[plugins]]
+repo = 'williamboman/nvim-lsp-installer'
+on_source = 'nvim-lspconfig'
 
 [[plugins]]
 repo = 'ncm2/float-preview.nvim'
 hook_source = '''
 set completeopt-=preview
 let g:float_preview#docked = 0
-'''
-
-[[plugins]]
-repo = 'Shougo/neosnippet'
-hook_source = '''
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-  if has('conceal')
-      set conceallevel=2 concealcursor=niv
-  endif
-'''
-on_i  = 1
-depends = ['neosnippet-snippets']
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-depends = ['neosnippet-snippets']
-on_i = 1
-hook_source = '''
-imap <expr><TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ neosnippet#expandable_or_jumpable() ?
-  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 '''
 
 [[plugins]] # unite.vim 後継

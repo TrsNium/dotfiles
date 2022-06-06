@@ -1,6 +1,3 @@
-[[plugins]]
-repo = 'Shougo/dein.vim' # package manager
-
 ##LANGS
 [[plugins]] # Toml
 repo  = 'cespare/vim-toml'
@@ -24,9 +21,6 @@ repo = 'fatih/vim-go'
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace' #visualize not nesessary whitespace after character
@@ -124,9 +118,6 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:12,max:12,results:100'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive' # git
-
-#[[plugins]]
-#repo = 'ryanoasis/vim-devicons' # display file icon
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim' #colorscheme

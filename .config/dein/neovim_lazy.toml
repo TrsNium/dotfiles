@@ -1,36 +1,51 @@
-[[plugins]] # 補完
-repo = 'Shougo/deoplete.nvim'
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc.vim'
 if = 'has("python3")'
 on_event = 'InsertEnter'
-depends = ['deoplete-lsp']
+depends = ['denops.vim']
 hook_source = '''
-  call deoplete#custom#option({
-      \ 'enable_at_startup'         :  1,
-      \ 'auto_complete_delay'       :  0,
-      \ 'ignore_case'               :  0,
-      \ 'smart_case'                :  1,
-      \ 'camel_case'                :  0,
-      \ 'refresh_always'            :  0,
-      \ 'max_list'                  :  1000,
-      \ 'auto_complete_start_length':  1
+  call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
+   call ddc#custom#patch_global('sourceOptions', {
+      \ '_': {
+      \ 'matchers': ['matcher_head'],
+      \ 'sorters': ['sorter_rank'],
+      \ },
+      \ 'around': {'mark': 'A'},
+      \ 'nvim-lsp': {
+      \ 'mark': 'L',
+      \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+      \ },
       \ })
 
-  call deoplete#custom#source('_', 'sorters', ['sorter_word'])
-  call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy']) " fuzzy matcher
-  call deoplete#custom#source('buffer', 'mark', '[buffer]')
-  call deoplete#custom#source('omni', 'mark', '[omni]')
+ call ddc#custom#patch_global('sourceParams', {
+      \ 'around': {'maxSize': 500},
+      \ })
 
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-  inoremap <expr><CR>  pumvisible() ? deoplete#close_popup() : "<CR>"
-
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-      call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
+ inoremap <silent><expr> <TAB>
+      \ ddc#map#pum_visible() ? '<C-n>' :
+      \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+      \ '<TAB>' : ddc#map#manual_complete()
+ inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
+  call ddc#enable()
 '''
 on_i = 1
 
+
 [[plugins]]
-repo = 'Shougo/deoplete-lsp'
-on_source = 'deoplete.nvim'
+repo = 'Shougo/ddc-around'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+on_source = 'ddc.vim'

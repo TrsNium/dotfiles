@@ -13,21 +13,3 @@ EOF
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
 on_source = 'nvim-lspconfig'
-
-[[plugins]]
-repo = 'ncm2/float-preview.nvim'
-hook_source = '''
-set completeopt-=preview
-let g:float_preview#docked = 0
-'''
-
-[[plugins]]
-repo = 'dense-analysis/ale'
-hook_add='''
-let g:ale_linters = {'python': ['flake8']}
-let g:ale_fixers = {'python': ['autopep8', 'black', 'isort']}
-
-let g:ale_open_list = 0
-let g:ale_fix_on_save = 1
-let g:ale_sign_column_always = 1
-'''

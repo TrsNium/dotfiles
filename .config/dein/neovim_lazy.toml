@@ -3,32 +3,32 @@ repo = 'vim-denops/denops.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-if = 'has("python3")'
 on_event = 'InsertEnter'
 depends = ['denops.vim']
 hook_source = '''
-  call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
-   call ddc#custom#patch_global('sourceOptions', {
-      \ '_': {
-      \ 'matchers': ['matcher_head'],
-      \ 'sorters': ['sorter_rank'],
-      \ },
-      \ 'around': {'mark': 'A'},
-      \ 'nvim-lsp': {
-      \ 'mark': 'L',
-      \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*',
-      \ },
+  call ddc#custom#patch_global('sources', ['nvim-lsp', 'around', 'nextword'])
+  call ddc#custom#patch_global('sourceOptions', {
+        \ 'nvim-lsp': {
+          \ 'mark': 'L',
+          \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+        \ },
+        \ 'around': {'mark': 'A'},
+        \ 'nextword': {'mark': 'nextword'},
+        \ '_': {
+          \ 'matchers': ['matcher_head'],
+          \ 'sorters': ['sorter_rank'],
+        \ },
       \ })
 
- call ddc#custom#patch_global('sourceParams', {
+  call ddc#custom#patch_global('sourceParams', {
       \ 'around': {'maxSize': 500},
       \ })
 
- inoremap <silent><expr> <TAB>
+  inoremap <silent><expr> <TAB>
       \ ddc#map#pum_visible() ? '<C-n>' :
       \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
       \ '<TAB>' : ddc#map#manual_complete()
- inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
+  inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
   call ddc#enable()
 '''
 on_i = 1
@@ -48,4 +48,8 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'statiolake/ddc-ale'
 on_source = 'ddc.vim'

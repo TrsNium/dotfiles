@@ -21,7 +21,7 @@ set completeopt-=preview
 let g:float_preview#docked = 0
 '''
 
-[[plugins]] # unite.vim 後継
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 if = 'has("python3")'
 on_cmd = 'Denite'
@@ -51,3 +51,14 @@ on_path = '.*'
 repo = 'Shougo/neoyank.vim'
 depends = 'denite.nvim'
 on_event = 'TextYankPost'
+
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add='''
+let g:ale_linters = {'python': ['flake8']}
+let g:ale_fixers = {'python': ['autopep8', 'black', 'isort']}
+
+let g:ale_open_list = 0
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+'''

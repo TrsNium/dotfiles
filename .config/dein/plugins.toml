@@ -22,11 +22,21 @@ repo = 'fatih/vim-go'
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'
 
+##BASE SETTING
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace' #visualize not nesessary whitespace after character
 
 [[plugins]]
-repo = 'Shougo/neocomplcache'
+repo = 'airblade/vim-gitgutter' # visualize git diff
+
+[[plugins]]
+repo = 'Yggdroot/indentLine' #visualize indent
+hook_add='''
+let g:indentLine_enabled = 0
+let g:indentLine_char = '|'
+let g:indentLine_leadingSpaceEnabled = 2
+let g:indentLine_leadingSpaceChar = '·'
+'''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline' #Custom Airline
@@ -49,19 +59,7 @@ hook_add='''
 '''
 
 [[plugins]]
-repo = 'Yggdroot/indentLine' #visualize indent
-hook_add='''
-let g:indentLine_enabled = 0
-let g:indentLine_char = '|'
-let g:indentLine_leadingSpaceEnabled = 2
-let g:indentLine_leadingSpaceChar = '·'
-'''
-
-[[plugins]]
 repo = 'cohama/lexima.vim' #support edit bucket
-
-[[plugins]]
-repo = 'airblade/vim-gitgutter' # visualize git diff
 
 [[plugins]]
 repo = 'osyo-manga/vim-over' # support replace
@@ -70,7 +68,7 @@ repo = 'osyo-manga/vim-over' # support replace
 repo = 'simeji/winresizer' # support window resize
 
 [[plugins]]
-repo = 'rking/ag.vim' # to use Ag in vim
+repo = 'rking/ag.vim' # to use Ag command in vim
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
@@ -117,7 +115,7 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:12,max:12,results:100'
 '''
 
 [[plugins]]
-repo = 'dense-analysis/ale'
+repo = 'dense-analysis/ale' # lint
 hook_add='''
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_fixers = {'python': ['autopep8', 'black', 'isort']}
@@ -139,13 +137,6 @@ repo = 'tpope/vim-fugitive' # git
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim' #colorscheme
-
-[[plugins]]
-repo = 'trevordmiller/nova-vim'
-
-
-[[plugins]]
-repo = 'chrisbra/NrrwRgn'
 
 [[plugins]]
 repo = 'rhysd/git-messenger.vim'

@@ -60,5 +60,10 @@ on_source = 'ddc.vim'
 repo = 'matsui54/denops-signature_help'
 hook_source = '''
   call signature_help#enable()
+  let g:signature_help_config = {
+    \ 'border': v:false,
+    \ 'style': "labelOnly",
+  \ }
+
 '''
 on_source = 'ddc.vim'

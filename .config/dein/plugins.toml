@@ -22,12 +22,19 @@ repo = 'fatih/vim-go'
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'
 
-##BASE SETTING
+##Git
 [[plugins]]
-repo = 'bronson/vim-trailing-whitespace' #visualize not nesessary whitespace after character
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'rhysd/git-messenger.vim'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter' # visualize git diff
+
+##BASE SEtting
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace' #visualize not nesessary whitespace after character
 
 [[plugins]]
 repo = 'Yggdroot/indentLine' #visualize indent
@@ -36,26 +43,6 @@ let g:indentLine_enabled = 0
 let g:indentLine_char = '|'
 let g:indentLine_leadingSpaceEnabled = 2
 let g:indentLine_leadingSpaceChar = '·'
-'''
-
-[[plugins]]
-repo = 'vim-airline/vim-airline' #Custom Airline
-hook_add='''
-let g:airline#extensions#tabline#formatter='unique_tail'
-let g:airline_powerline_fonts=0
-let g:airline#extensions#tabline#enabled = 1
-nmap <C-p> <Plug>AirlineSelectPrevTab
-nmap <C-n> <Plug>AirlineSelectNextTab
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-'''
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes' #to set ailrline theme
-hook_add='''
-"let g:airline_theme='minimalist'
 '''
 
 [[plugins]]
@@ -71,6 +58,13 @@ repo = 'simeji/winresizer' # support window resize
 repo = 'rking/ag.vim' # to use Ag command in vim
 
 [[plugins]]
+repo = 'ncm2/float-preview.nvim'
+hook_source = '''
+set completeopt-=preview
+let g:float_preview#docked = 0
+'''
+
+[[plugins]]
 repo = 'junegunn/fzf.vim'
 
 [[plugins]]
@@ -79,16 +73,6 @@ hook_add='''
 let g:NERDTreeShowBookmarks=1
 let g:indentLine_fileTypeExclude = ["nerdtree"]
 let g:NERDTreeShowHidden=1
-'''
-
-[[plugins]]
-repo = 'liuchengxu/vista.vim'
-hook_add='''
-let g:vista_icon_indent = ["▸ ", ""]
-let g:vista_echo_cursor_strategy="floating_win"
-nnoremap vvl :Vista lcn<CR>
-nnoremap vvf :Vista finder lcn<CR>
-let g:vista_fzf_preview = ['right:50%']
 '''
 
 [[plugins]]
@@ -126,17 +110,24 @@ let g:ale_sign_column_always = 1
 '''
 
 [[plugins]]
-repo = 'ncm2/float-preview.nvim'
-hook_source = '''
-set completeopt-=preview
-let g:float_preview#docked = 0
-'''
-
-[[plugins]]
-repo = 'tpope/vim-fugitive' # git
-
-[[plugins]]
 repo = 'cocopon/iceberg.vim' #colorscheme
 
 [[plugins]]
-repo = 'rhysd/git-messenger.vim'
+repo = 'vim-airline/vim-airline' #Custom Airline
+hook_add='''
+let g:airline#extensions#tabline#formatter='unique_tail'
+let g:airline_powerline_fonts=0
+let g:airline#extensions#tabline#enabled = 1
+nmap <C-p> <Plug>AirlineSelectPrevTab
+nmap <C-n> <Plug>AirlineSelectNextTab
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes' #to set ailrline theme
+hook_add='''
+"let g:airline_theme='minimalist'
+'''

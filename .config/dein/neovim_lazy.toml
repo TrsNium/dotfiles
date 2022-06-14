@@ -6,14 +6,13 @@ repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
 depends = ['denops.vim']
 hook_source = '''
-  call ddc#custom#patch_global('sources', ['nvim-lsp', 'around', 'nextword'])
+  call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
   call ddc#custom#patch_global('sourceOptions', {
         \ 'nvim-lsp': {
           \ 'mark': 'L',
           \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*',
         \ },
         \ 'around': {'mark': 'A'},
-        \ 'nextword': {'mark': 'nextword'},
         \ '_': {
           \ 'matchers': ['matcher_head'],
           \ 'sorters': ['sorter_rank'],
@@ -48,8 +47,4 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'statiolake/ddc-ale'
 on_source = 'ddc.vim'

@@ -147,7 +147,7 @@ setopt auto_menu
 # Tmux config
 if [[ ! -n $TMUX && $- == *l* ]]; then
   # get the IDs
-  ID="`tmux list-sessions`"
+  ID=`tmux list-sessions`
   if [[ -z "$ID" ]]; then
     tmux new-session
   fi

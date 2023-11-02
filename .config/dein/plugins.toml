@@ -135,3 +135,9 @@ repo = 'vim-airline/vim-airline-themes' #to set ailrline theme
 hook_add='''
 "let g:airline_theme='minimalist'
 '''
+
+[[plugins]]
+ repo = 'williamboman/mason.nvim'
+
+[[plugins]]
+ repo = 'williamboman/mason-lspconfig.nvim'

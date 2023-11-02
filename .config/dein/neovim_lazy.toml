@@ -58,20 +58,16 @@ repo = 'Shougo/ddc-nvim-lsp'
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'matsui54/denops-popup-preview.vim'
-hook_source = '''
-  call popup_preview#enable()
+ repo = 'matsui54/denops-signature_help'
+ on_source = 'ddc.vim'
+ hook_source = '''
+ call signature_help#enable()
 '''
-on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'matsui54/denops-signature_help'
-hook_source = '''
-  call signature_help#enable()
-  let g:signature_help_config = {
-    \ 'border': v:false,
-    \ 'style': "labelOnly",
-  \ }
-
+ repo = 'matsui54/denops-popup-preview.vim'
+ on_source = 'ddc.vim'
+ hook_source = '''
+ call popup_preview#enable()
 '''
-on_source = 'ddc.vim'
+

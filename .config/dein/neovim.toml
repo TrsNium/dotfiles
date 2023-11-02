@@ -9,7 +9,3 @@ lsp_installer.on_server_ready(function(server)
 end)
 EOF
 '''
-
-[[plugins]]
-repo = 'williamboman/nvim-lsp-installer'
-on_source = 'nvim-lspconfig'

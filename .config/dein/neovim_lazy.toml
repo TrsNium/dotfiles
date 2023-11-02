@@ -6,6 +6,7 @@ repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
 depends = ['denops.vim']
 hook_source = '''
+  call ddc#custom#patch_global('ui', 'pum')
   call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
   call ddc#custom#patch_global('sourceOptions', {
         \ 'nvim-lsp': {
@@ -24,7 +25,7 @@ hook_source = '''
       \ })
 
   inoremap <silent><expr> <TAB>
-      \ ddc#map#pum_visible() ? '<C-n>' :
+      \ pum#visible() ? '<C-n>' :
       \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
       \ '<TAB>' : ddc#map#manual_complete()
   inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
@@ -32,6 +33,13 @@ hook_source = '''
 '''
 on_i = 1
 
+
+[[plugins]]
+repo = 'Shougo/pum.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-pum'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-around'

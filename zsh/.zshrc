@@ -68,7 +68,7 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "b4b4r07/emoji-cli"
-zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf-tmux
+zplug "junegunn/fzf", from:gh-r, as:command, rename-to:fzf-tmux
 zplug "mafredri/zsh-async", from:github
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme

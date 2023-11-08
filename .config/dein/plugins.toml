@@ -147,7 +147,7 @@ repo = 'nvim-treesitter/nvim-treesitter'
 hook_add = '''
 lua << EOF
 require('nvim-treesitter.configs').setup {
-  ensure_installed = 'cue',
+  ensure_installed = { 'lua','cue','yaml','toml','python','go','make','html','sql','jsonnet' },
   highlight = {
     enable = true,
   },

@@ -21,6 +21,8 @@ let g:dein#install_progress_type = 'title'
 let g:dein#install_message_type = 'none'
 let g:dein#enable_notification = 1
 
+let mapleader = "\<SPACE>"
+
 if dein#load_state(s:dein_cache_dir)
     call dein#begin(s:dein_cache_dir)
     call dein#add('Shougo/dein.vim')
@@ -125,9 +127,6 @@ highlight VertSplit ctermfg=bg ctermbg=bg guifg=bg guibg=bg
 
 set fileformats=unix,dos,mac
 
-
-let mapleader = "\<SPACE>"
-let mapleader = ","
 
 lua << EOF
    local on_attach = function(client, bufnr)

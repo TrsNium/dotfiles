@@ -83,15 +83,15 @@ let g:float_preview#docked = 0
 repo = 'junegunn/fzf.vim'
 
 [[plugins]]
-repo = 'scrooloose/nerdtree' # display directory and file construct
+repo = 'lambdalisue/fern.vim'
 hook_add='''
-let g:NERDTreeShowBookmarks=1
-let g:indentLine_fileTypeExclude = ["nerdtree"]
-let g:NERDTreeShowHidden=1
 '''
 
 [[plugins]]
-repo = 'jistr/vim-nerdtree-tabs' # nerd-tree-sync-tab
+repo = 'lambdalisue/nerdfont.vim' # display directory and file construct
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
 
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'

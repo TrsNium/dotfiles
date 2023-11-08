@@ -58,11 +58,6 @@ set encoding=UTF-8
 
 nmap / /\v
 
-" NerdTree Option
-" Support Toggle menue
-nmap <Space>t :NERDTreeToggle<CR>
-" autocmd VimEnter * execute 'NERDTree'
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 autocmd QuickFixCmdPost *grep* cwindow
 
@@ -73,7 +68,6 @@ autocmd Syntax yaml setl indentkeys-=<:>
 au BufNewFile,BufRead *.erl setf erlang
 au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
 
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 augroup QfAutoCommands
   autocmd!
   " Auto-close quickfix window

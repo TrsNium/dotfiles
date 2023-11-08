@@ -126,6 +126,9 @@ highlight VertSplit ctermfg=bg ctermbg=bg guifg=bg guibg=bg
 set fileformats=unix,dos,mac
 
 
+let mapleader = "\<SPACE>"
+let mapleader = ","
+
 lua << EOF
    local on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false

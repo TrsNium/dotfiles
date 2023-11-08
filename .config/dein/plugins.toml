@@ -94,23 +94,65 @@ let g:NERDTreeShowHidden=1
 repo = 'jistr/vim-nerdtree-tabs' # nerd-tree-sync-tab
 
 [[plugins]]
-repo = 'ctrlpvim/ctrlp.vim' # search file , buffer
-hook_add='''
-nnoremap s <Nop>
-nnoremap sa :<C-u>CtrlP<CR>
-nnoremap sb :<C-u>CtrlPBuffer<CR>
-nnoremap sd :<C-u>CtrlPDir<CR>
-nnoremap sf :<C-u>CtrlP<CR>
-nnoremap sl :<C-u>CtrlPLine<CR>
-nnoremap sm :<C-u>CtrlPMRUFiles<CR>
-nnoremap sq :<C-u>CtrlPQuickfix<CR>
-nnoremap ss :<C-u>CtrlPMixed<CR>
-nnoremap st :<C-u>CtrlPTag<CR>
+repo = 'nvim-lua/plenary.nvim'
 
-let g:ctrlp_map = '<Nop>'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_match_window = 'bottom,order:btt,min:12,max:12,results:100'
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim' # search file , buffer
+depends = ['airblade/vim-rooter']
+hook_add='''
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+lua << EOF
+require('telescope').setup({
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+    },
+    live_grep = {
+      theme = "dropdown",
+    },
+    buffers = {
+      theme = "dropdown",
+    },
+    help_tags = {
+      theme = "dropdown",
+    },
+  }
+})
+EOF
+'''
+
+# telescope-frequencyが依存
+[[plugins]]
+repo = 'tami5/sqlite.lua'
+
+# telescope-frequencyが依存
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-frecency.nvim'
+hook_add = '''
+nnoremap <leader>fq <cmd>Telescope frecency<cr>
+lua << EOF
+require"telescope".load_extension("frecency")
+EOF
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_add = '''
+lua << EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = 'cue',
+  highlight = {
+    enable = true,
+  },
+}
+EOF
 '''
 
 [[plugins]]

@@ -85,6 +85,8 @@ repo = 'junegunn/fzf.vim'
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 hook_add='''
+let g:fern#default_hidden=1
+let g:fern#renderer='nerdfont'
 '''
 
 [[plugins]]

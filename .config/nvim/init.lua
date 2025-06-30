@@ -42,6 +42,7 @@ vim.opt.smartindent = true
 
 -- UI settings
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.ruler = true
 vim.opt.cursorline = true
 vim.opt.laststatus = 2
@@ -165,6 +166,7 @@ require("lazy").setup({
     cmd = "Telescope",
     keys = {
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+      { "<leader>f.", "<cmd>Telescope find_files cwd=%:p:h<cr>", desc = "Find files (current dir)" },
       { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
       { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
@@ -195,6 +197,7 @@ require("lazy").setup({
         pickers = {
           find_files = {
             find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+            cwd = vim.fn.getcwd(),
           },
         },
       })
@@ -304,6 +307,41 @@ require("lazy").setup({
         float_opts = {
           border = "curved",
           winblend = 0,
+        },
+      })
+    end,
+  },
+
+  -- Indent visualization
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("ibl").setup({
+        indent = {
+          char = "│",
+          tab_char = "│",
+        },
+        scope = {
+          enabled = true,
+          show_start = true,
+          show_end = false,
+          highlight = { "Function", "Label" },
+        },
+        exclude = {
+          filetypes = {
+            "help",
+            "alpha",
+            "dashboard",
+            "NvimTree",
+            "Trouble",
+            "lazy",
+            "mason",
+            "notify",
+            "toggleterm",
+            "lazyterm",
+          },
         },
       })
     end,

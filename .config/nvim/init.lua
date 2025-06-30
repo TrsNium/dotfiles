@@ -313,7 +313,8 @@ require("lazy").setup({
   {
     "neoclide/coc.nvim",
     branch = "release",
-    event = { "BufReadPre", "BufNewFile" },
+    build = "npm ci",
+    lazy = false,
     config = function()
       -- Some servers have issues with backup files
       vim.opt.backup = false

@@ -87,7 +87,7 @@ tabspaces: 8
 # Font configuration (changes require restart)
 font:
   normal:
-    family: "Agava Nerd Font"
+    family: "Hack Nerd Font"
     style: Regular
   size: 12.0
 

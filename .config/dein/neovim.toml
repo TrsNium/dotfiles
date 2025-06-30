@@ -1,6 +1,0 @@
-[[plugins]]
-repo = 'neovim/nvim-lspconfig'
-hook_add = '''
-lua << EOF
-EOF
-'''

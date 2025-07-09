@@ -57,6 +57,9 @@ vim.opt.pumblend = 30
 vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
 
+-- Auto-reload files
+vim.opt.autoread = true
+
 -- Other settings
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -104,6 +107,23 @@ autocmd("WinEnter", {
     if vim.fn.winnr("$") == 1 and vim.bo.buftype == "quickfix" then
       vim.cmd("quit")
     end
+  end,
+})
+
+-- Auto-reload files when changed outside of Neovim
+local autoreload_group = augroup("AutoReload", { clear = true })
+autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  group = autoreload_group,
+  pattern = "*",
+  command = "if mode() != 'c' | checktime | endif",
+})
+
+-- Notification when file is changed
+autocmd("FileChangedShellPost", {
+  group = autoreload_group,
+  pattern = "*",
+  callback = function()
+    vim.notify("File changed on disk. Buffer reloaded.", vim.log.levels.INFO)
   end,
 })
 
@@ -586,5 +606,23 @@ require("lazy").setup({
         return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
       end
     end,
+  },
+
+  -- Claude Code plugin for AI assistance
+  {
+    "greggh/claude-code.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("claude-code").setup({
+        -- You can configure options here if needed
+      })
+    end,
+    keys = {
+      { "<leader>cc", "<cmd>ClaudeCode<cr>", desc = "Open Claude Code" },
+      { "<leader>ca", "<cmd>ClaudeCodeAsk<cr>", desc = "Ask Claude" },
+      { "<leader>cr", "<cmd>ClaudeCodeReview<cr>", desc = "Review with Claude" },
+    },
   },
 })

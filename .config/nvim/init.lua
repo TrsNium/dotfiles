@@ -163,18 +163,94 @@ require("lazy").setup({
     end,
   },
 
-  -- NERDTree file explorer
+  -- Alpha-nvim for dashboard/startup screen
   {
-    "preservim/nerdtree",
-    cmd = { "NERDTree", "NERDTreeToggle", "NERDTreeFind" },
+    "goolord/alpha-nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VimEnter",
+    config = function()
+      local alpha = require('alpha')
+      local dashboard = require('alpha.themes.dashboard')
+      
+      -- Configure dashboard
+      alpha.setup(dashboard.config)
+      
+      -- Fix statusline/laststatus for alpha
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "AlphaReady",
+        callback = function()
+          vim.opt.laststatus = 0
+          vim.opt.showtabline = 0
+        end,
+      })
+      
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "AlphaClosed",
+        callback = function()
+          vim.opt.laststatus = 2
+          vim.opt.showtabline = 2
+        end,
+      })
+    end,
+  },
+
+  -- Feather.nvim file explorer
+  {
+    "TrsNium/feather.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    lazy = false,  -- Load immediately to ensure proper setup
     keys = {
-      { "<leader>e", ":NERDTreeToggle<CR>", desc = "Toggle NERDTree" },
-      { "<leader>nf", ":NERDTreeFind<CR>", desc = "Find current file in NERDTree" },
+      { "<leader>e", "<cmd>Feather<cr>", desc = "Toggle Feather file explorer" },
+      { "<leader>fo", "<cmd>FeatherOpen<cr>", desc = "Open Feather file explorer" },
+      { "<leader>fc", "<cmd>FeatherClose<cr>", desc = "Close Feather file explorer" },
+      { "<leader>fe", "<cmd>FeatherCurrent<cr>", desc = "Open Feather in current file's directory" },
     },
     config = function()
-      vim.g.NERDTreeShowHidden = 1
-      vim.g.NERDTreeMinimalUI = 1
-      vim.g.NERDTreeDirArrows = 1
+      require("feather").setup({
+        window = {
+          width = 0.42,  -- 42% width for better center split
+          height = 0.8,
+          border = "rounded",  -- Changed from "rounded" to "single" for square borders
+          position = "center",
+        },
+        icons = {
+          enabled = true,
+          folder = "",
+          default_file = "",
+        },
+        features = {
+          show_hidden = true,
+          auto_close = true,
+          split_view = true,  -- Set to true to enable split view mode
+          max_columns = 4,
+          column_separator = false,  -- Disable column separators by default
+        },
+        preview = {
+          enabled = true,
+          position = "auto",
+          border = "rounded",  -- Border style for preview window (rounded, single, double, etc.)
+          max_lines = 100,
+          min_width = 30,
+          min_height = 5,
+        },
+        keymaps = {
+          quit = { "q", "<Esc>" },
+          open = { "<CR>", "l" },
+          parent = { "h" },
+          down = { "j" },
+          up = { "k" },
+          toggle_hidden = { "." },
+          toggle_icons = { "i" },
+          toggle_preview = { "p" },
+          preview_scroll_down = { "<C-d>" },
+          preview_scroll_up = { "<C-u>" },
+          home = { "~" },
+          search = { "/" },
+          help = { "?" },
+        },
+      })
     end,
   },
 
@@ -276,17 +352,20 @@ require("lazy").setup({
     end,
   },
 
-  -- Vim-airline for statusline
+  -- Statusline.lua for statusline
   {
-    "vim-airline/vim-airline",
-    dependencies = {
-      "vim-airline/vim-airline-themes",
-    },
-    event = "VeryLazy",
+    "beauwilliams/statusline.lua",
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
-      vim.g.airline_powerline_fonts = 0
-      vim.g["airline#extensions#tabline#enabled"] = 0
-      vim.g.airline_theme = "iceberg"
+      require('statusline').setup({
+        match_colorscheme = true,
+        tabline = true,
+        lsp_diagnostics = true,
+        style = "default",
+      })
+      
+      -- Ensure statusline is shown properly
+      vim.opt.laststatus = 2
     end,
   },
 
@@ -600,9 +679,6 @@ require("lazy").setup({
       -- Add `:OR` command for organize imports of the current buffer
       vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
 
-      -- Add (Neo)Vim's native statusline support
-      vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
-
       -- Helper function for check_back_space
       function _G.check_back_space()
         local col = vim.fn.col('.') - 1
@@ -714,5 +790,26 @@ require("lazy").setup({
         end
       })
     end,
+  },
+
+  -- Resonance.nvim for TidalCycles live coding
+  {
+    "TrsNium/resonance.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("resonance").setup({
+        -- You can configure options here if needed
+      })
+    end,
+    ft = { "tidal" }, -- Only load for .tidal files
+    cmd = { "TidalStart", "TidalStop", "TidalEval", "TidalHush" },
+    keys = {
+      { "<leader>ts", "<cmd>TidalStart<cr>", desc = "Start Tidal REPL" },
+      { "<leader>tq", "<cmd>TidalStop<cr>", desc = "Stop Tidal REPL" },
+      { "<leader>te", "<cmd>TidalEval<cr>", desc = "Evaluate Tidal code" },
+      { "<leader>th", "<cmd>TidalHush<cr>", desc = "Hush all patterns" },
+    },
   },
 })

@@ -366,6 +366,26 @@ require("lazy").setup({
       
       -- Ensure statusline is shown properly
       vim.opt.laststatus = 2
+      
+      -- Customize statusline colors for iceberg theme
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "iceberg",
+        callback = function()
+          -- Set statusline filename color to match iceberg theme better
+          vim.api.nvim_set_hl(0, "StatuslineFilename", { fg = "#84a0c6", bg = "#161821" })
+          vim.api.nvim_set_hl(0, "StatuslineFilenameInactive", { fg = "#6b7089", bg = "#161821" })
+          vim.api.nvim_set_hl(0, "StatusLine", { fg = "#84a0c6", bg = "#161821" })
+          vim.api.nvim_set_hl(0, "StatusLineNC", { fg = "#6b7089", bg = "#161821" })
+        end,
+      })
+      
+      -- Apply colors immediately if iceberg is already loaded
+      if vim.g.colors_name == "iceberg" then
+        vim.api.nvim_set_hl(0, "StatuslineFilename", { fg = "#84a0c6", bg = "#161821" })
+        vim.api.nvim_set_hl(0, "StatuslineFilenameInactive", { fg = "#6b7089", bg = "#161821" })
+        vim.api.nvim_set_hl(0, "StatusLine", { fg = "#84a0c6", bg = "#161821" })
+        vim.api.nvim_set_hl(0, "StatusLineNC", { fg = "#6b7089", bg = "#161821" })
+      end
     end,
   },
 

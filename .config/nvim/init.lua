@@ -359,7 +359,7 @@ require("lazy").setup({
     config = function()
       require('statusline').setup({
         match_colorscheme = true,
-        tabline = true,
+        tabline = false,
         lsp_diagnostics = true,
         style = "default",
       })
